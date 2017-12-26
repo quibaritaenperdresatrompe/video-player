@@ -14,7 +14,7 @@ module.exports = {
     loaders: [
       {
         include: SRC_DIR,
-        loader: ['babel-loader'],
+        loader: ['babel-loader', 'eslint-loader'],
         test: /\.js$/,
       },
     ],

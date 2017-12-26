@@ -13,14 +13,22 @@
 	"name": "video-player",
 	"scripts": {
 		"build": "webpack",
-		"dev": "webpack-dev-server"
+		"dev": "webpack-dev-server",
+		"lint": "eslint src"
 	},
 	"version": "0.1.0",
 	"devDependencies": {
 		"babel-core": "^6.26.0",
+		"babel-eslint": "^8.1.2",
 		"babel-loader": "^7.1.2",
 		"babel-preset-env": "^1.6.1",
 		"babel-preset-react": "^6.24.1",
+		"eslint": "^4.14.0",
+		"eslint-config-airbnb": "^16.1.0",
+		"eslint-loader": "^1.9.0",
+		"eslint-plugin-import": "^2.8.0",
+		"eslint-plugin-jsx-a11y": "^6.0.3",
+		"eslint-plugin-react": "^7.5.1",
 		"html-webpack-plugin": "^2.30.1"
 	}
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 export default class App extends Component {
-  render () {
+  render() {
     return <h1>Video Player</h1>
   }
 }

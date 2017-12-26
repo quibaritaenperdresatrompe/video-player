@@ -1,0 +1,15 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true
+  },
+  "plugins": [ "react" ],
+  "rules": {
+      "arrow-parens": [0],
+      "quotes": [1, "single"],
+      "react/prop-types": [0],
+      "semi": [1, "never"],
+      "class-methods-use-this": [0],
+  },
+  "extends": ["airbnb-base", "plugin:react/recommended" ]
+}
