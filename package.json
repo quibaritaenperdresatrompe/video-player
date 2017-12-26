@@ -1,0 +1,8 @@
+{
+	"author": "@quibaritaenperdresatrompe",
+	"description": "Video player",
+	"license": "MIT",
+	"main": "index.js",
+	"name": "video-player",
+	"version": "0.1.0"
+}
