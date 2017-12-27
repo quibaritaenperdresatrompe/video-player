@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ControlsBar with all props it renders correctly 1`] = `
+<div
+  className="css-17eql88"
+>
+  <span
+    className="css-dw3c54"
+    onClick={[MockFunction]}
+  >
+    <svg
+      className="css-189tqkb"
+      color="#fff"
+      height="1.2em"
+      viewBox="0 0 24 24"
+      width="1.2em"
+    >
+      <path
+        d="M8 5v14l11-7z"
+      />
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+    </svg>
+  </span>
+  <span
+    className="css-7vf4kv"
+  >
+    00:01:39 / 00:16:39
+  </span>
+</div>
+`;
+
+exports[`ControlsBar without pause prop it renders correctly 1`] = `
+<div
+  className="css-17eql88"
+>
+  <span
+    className="css-dw3c54"
+    onClick={[MockFunction]}
+  >
+    <svg
+      className="css-189tqkb"
+      color="#fff"
+      height="1.2em"
+      viewBox="0 0 24 24"
+      width="1.2em"
+    >
+      <path
+        d="M8 5v14l11-7z"
+      />
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+    </svg>
+  </span>
+  <span
+    className="css-7vf4kv"
+  >
+    00:01:39 / 00:16:39
+  </span>
+</div>
+`;
+
+exports[`ControlsBar without play prop it renders correctly 1`] = `
+<div
+  className="css-17eql88"
+>
+  <span
+    className="css-dw3c54"
+    onClick={[MockFunction]}
+  >
+    <svg
+      className="css-189tqkb"
+      color="#fff"
+      height="1.2em"
+      viewBox="0 0 24 24"
+      width="1.2em"
+    >
+      <path
+        d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"
+      />
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+    </svg>
+  </span>
+  <span
+    className="css-7vf4kv"
+  >
+    00:01:39 / 00:16:39
+  </span>
+</div>
+`;
+
+exports[`ControlsBar without props it renders correctly 1`] = `null`;
