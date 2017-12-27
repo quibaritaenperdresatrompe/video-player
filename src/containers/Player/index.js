@@ -21,9 +21,17 @@ class Player extends Component {
   constructor() {
     super()
     this.state = {
+      currentTime: 0,
+      duration: 0,
       isPlaying: false,
       isControlsBarHidden: false,
     }
+  }
+
+  handleOnLoad = () => {
+    this.setState(() => ({
+      duration: this.player.duration,
+    }))
   }
 
   handlePause = () => {
@@ -49,6 +57,12 @@ class Player extends Component {
     )
   }
 
+  handleTimeUpdate = () => {
+    this.setState(() => ({
+      currentTime: this.player.currentTime,
+    }))
+  }
+
   autoHideControlsBar = () => {
     this.autoHideControlsBarTimeout = window.setTimeout(
       () => this.setState(() => ({
@@ -68,6 +82,8 @@ class Player extends Component {
     return (
       <ControlsBarContainer>
         <ControlsBar
+          currentTime={this.state.currentTime}
+          duration={this.state.duration}
           pause={isPlaying ? this.handlePause : null}
           play={isPlaying ? null : this.handlePlay}
         />
@@ -80,9 +96,11 @@ class Player extends Component {
       <PlayerContainer>
         <video
           height={480}
+          onClick={this.state.isPlaying ? this.handlePause : this.handlePlay}
+          onLoadedMetadata={this.handleOnLoad}
+          onTimeUpdate={this.handleTimeUpdate}
           ref={el => { this.player = el }}
           src={this.props.currentSource}
-          onClick={this.state.isPlaying ? this.handlePause : this.handlePlay}
         />
         {this.renderControlsBar()}
       </PlayerContainer>
