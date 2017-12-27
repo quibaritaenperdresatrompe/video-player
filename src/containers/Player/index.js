@@ -10,7 +10,7 @@ const PlayerContainer = glamorous.div({
 })
 
 const ControlsBarContainer = glamorous.div({
-  backgroundColor: 'hsla(0, 0%, 14%, 0.8)',
+  background: 'linear-gradient(bottom, hsl(0, 0%, 14%) 0%, transparent 100%)',
   bottom: 0,
   position: 'absolute',
   width: 'calc(100% - 1em)',
