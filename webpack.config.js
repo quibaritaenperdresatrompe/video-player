@@ -8,14 +8,23 @@ module.exports = {
   entry: path.join(SRC_DIR, 'index.js'),
   output: {
     path: PUBLIC_DIR,
-    filename: 'app.bundle.js'
+    filename: 'app.bundle.js',
   },
   module: {
-    loaders: [
+    rules: [
       {
         include: SRC_DIR,
-        loader: ['babel-loader', 'eslint-loader'],
         test: /\.js$/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['react', 'env'],
+              plugins: ['transform-class-properties'],
+            },
+          },
+          { loader: 'eslint-loader' },
+        ],
       },
     ],
   },
