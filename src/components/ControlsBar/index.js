@@ -2,14 +2,11 @@ import glamorous from 'glamorous'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
-const StyledPlayPauseButton = glamorous.div({
-  color: 'hsla(0, 0%, 100%, 0.7)',
+import PauseIcon from '../../components/PauseIcon'
+import PlayIcon from '../../components/PlayIcon'
+
+const StyledControlContainer = glamorous.span({
   cursor: 'pointer',
-  display: 'inline-block',
-  ':hover': {
-    color: 'hsla(0, 0%, 100%, 1)',
-  },
-  fontSize: '0.8em',
 })
 
 class ControlsBar extends Component {
@@ -20,9 +17,9 @@ class ControlsBar extends Component {
     } = this.props
 
     return (
-      <StyledPlayPauseButton onClick={pause || play}>
-        {play ? 'PLAY' : 'PAUSE'}
-      </StyledPlayPauseButton>
+      <StyledControlContainer onClick={pause || play}>
+        {play ? <PlayIcon size='1.2em' /> : <PauseIcon size='1.2em' />}
+      </StyledControlContainer>
     )
   }
 
