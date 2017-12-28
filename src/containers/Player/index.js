@@ -26,6 +26,16 @@ class Player extends Component {
       isControlsBarHidden: false,
       isPlaying: false,
     }
+    this.autoHideControlsBarTimeout = null
+  }
+
+  handleMouseEnter = () => {
+    this.showControlsBar()
+    this.hideControlsBarWithDelay()
+  }
+
+  handleMouseLeave = () => {
+    this.hideControlsBar()
   }
 
   handleOnLoad = () => {
@@ -35,24 +45,25 @@ class Player extends Component {
   }
 
   handlePause = () => {
-    this.resetAutoHideControlsBarTimeout()
     this.setState(
       () => ({
         isPlaying: false,
       }),
-      () => this.pause(),
+      () => {
+        this.pause()
+        this.showControlsBar()
+      },
     )
   }
 
   handlePlay = () => {
-    this.resetAutoHideControlsBarTimeout()
     this.setState(
       () => ({
         isPlaying: true,
       }),
       () => {
         this.play()
-        this.setAutoHideControlsBarTimeout()
+        this.hideControlsBarWithDelay()
       },
     )
   }
@@ -63,22 +74,35 @@ class Player extends Component {
     }))
   }
 
-  hideControlsBar = () => this.setState(() => ({
-    isControlsBarHidden: true,
-  }))
+  hideControlsBar = () => {
+    this.setState(() => ({
+      isControlsBarHidden: true,
+    }))
+  }
+
+  hideControlsBarWithDelay = () => {
+    this.autoHideControlsBarTimeout = window.setTimeout(
+      this.hideControlsBar,
+      5000,
+    )
+  }
 
   play = () => this.player.play()
 
   pause = () => this.player.pause()
 
-  resetAutoHideControlsBarTimeout = () =>
-    window.clearTimeout(this.autoHideControlsBarTimeout)
+  resetAutoHideControlsBarTimeout = () => {
+    if (this.autoHideControlsBarTimeout) {
+      window.clearTimeout(this.autoHideControlsBarTimeout)
+    }
+  }
 
-  setAutoHideControlsBarTimeout = () => {
-    this.autoHideControlsBarTimeout = window.setTimeout(
-      this.hideControlsBar,
-      5000,
-    )
+  showControlsBar = () => {
+    this.setState(() => ({
+      isControlsBarHidden: false,
+    }))
+    this.resetAutoHideControlsBarTimeout()
+  }
   }
 
   renderControlsBar = () => {
@@ -107,6 +131,8 @@ class Player extends Component {
           height={480}
           onClick={this.state.isPlaying ? this.handlePause : this.handlePlay}
           onLoadedMetadata={this.handleOnLoad}
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
           onTimeUpdate={this.handleTimeUpdate}
           ref={el => { this.player = el }}
           src={this.props.currentSource}

@@ -25,9 +25,27 @@ const mutations = [
 describe(Player.name, () => {
   itRendersAllMutations(Player, mutations)
 
-  describe('handlers', function () {
+  describe('handlers', function scope() {
     beforeEach(() => {
       this.Player = new Player()
+    })
+
+    describe('handleMouseEnter', () => {
+      test('it calls showControlsBar and hideControlsBarWithDelay', () => {
+        this.Player.showControlsBar = jest.fn()
+        this.Player.hideControlsBarWithDelay = jest.fn()
+        this.Player.handleMouseEnter()
+        expect(this.Player.showControlsBar).toHaveBeenCalled()
+        expect(this.Player.hideControlsBarWithDelay).toHaveBeenCalled()
+      })
+    })
+
+    describe('handleMouseLeave', () => {
+      test('it calls hideControlsBar', () => {
+        this.Player.hideControlsBar = jest.fn()
+        this.Player.handleMouseLeave()
+        expect(this.Player.hideControlsBar).toHaveBeenCalled()
+      })
     })
 
     describe('handleOnLoad', () => {
@@ -39,21 +57,17 @@ describe(Player.name, () => {
     })
 
     describe('handlePause', () => {
-      test('it calls resetAutoHideControlsBarTimeout and setState', () => {
-        this.Player.resetAutoHideControlsBarTimeout = jest.fn()
+      test('it calls setState', () => {
         this.Player.setState = jest.fn()
         this.Player.handlePause()
-        expect(this.Player.resetAutoHideControlsBarTimeout).toHaveBeenCalled()
         expect(this.Player.setState).toHaveBeenCalled()
       })
     })
 
     describe('handlePlay', () => {
-      test('it calls resetAutoHideControlsBarTimeout and setState', () => {
-        this.Player.resetAutoHideControlsBarTimeout = jest.fn()
+      test('it calls setState', () => {
         this.Player.setState = jest.fn()
         this.Player.handlePlay()
-        expect(this.Player.resetAutoHideControlsBarTimeout).toHaveBeenCalled()
         expect(this.Player.setState).toHaveBeenCalled()
       })
     })
@@ -67,7 +81,7 @@ describe(Player.name, () => {
     })
   })
 
-  describe('functions', function () {
+  describe('functions', function scope() {
     beforeEach(() => {
       this.Player = new Player()
     })
@@ -77,6 +91,15 @@ describe(Player.name, () => {
         this.Player.setState = jest.fn()
         this.Player.hideControlsBar()
         expect(this.Player.setState).toHaveBeenCalled()
+      })
+    })
+
+    describe('hideControlsBarWithDelay', () => {
+      test('it calls window.setTimeout and sets autoHideControlsBarTimeout', () => {
+        jest.useFakeTimers()
+        this.Player.hideControlsBarWithDelay()
+        expect(window.setTimeout).toHaveBeenCalled()
+        expect(this.Player.autoHideControlsBarTimeout).not.toBe(null)
       })
     })
 
@@ -103,19 +126,24 @@ describe(Player.name, () => {
     describe('resetAutoHideControlsBarTimeout', () => {
       test('it calls window.clearTimeout', () => {
         jest.useFakeTimers()
-        this.Player.autoHideControlsBarTimeout = {}
+        this.Player.autoHideControlsBarTimeout = 99
         this.Player.resetAutoHideControlsBarTimeout()
         expect(window.clearTimeout).toHaveBeenCalledWith(this.Player.autoHideControlsBarTimeout)
       })
+      test('it does nothing', () => {
+        jest.useFakeTimers()
+        this.Player.resetAutoHideControlsBarTimeout()
+        expect(window.clearTimeout).not.toHaveBeenCalled()
+      })
     })
 
-    describe('setAutoHideControlsBarTimeout', () => {
-      test('it calls window.setTimeout and sets autoHideControlsBarTimeout', () => {
-        jest.useFakeTimers()
-        this.Player.autoHideControlsBarTimeout = null
-        this.Player.setAutoHideControlsBarTimeout()
-        expect(window.setTimeout).toHaveBeenCalled()
-        expect(this.Player.autoHideControlsBarTimeout).not.toBe(null)
+    describe('showControlsBar', () => {
+      test('it calls setState and resetAutoHideControlsBarTimeout', () => {
+        this.Player.setState = jest.fn()
+        this.Player.resetAutoHideControlsBarTimeout = jest.fn()
+        this.Player.showControlsBar()
+        expect(this.Player.setState).toHaveBeenCalled()
+        expect(this.Player.resetAutoHideControlsBarTimeout).toHaveBeenCalled()
       })
     })
   })

@@ -8,6 +8,8 @@ exports[`Player when ControlsBar is hidden it renders correctly 1`] = `
     height={480}
     onClick={[Function]}
     onLoadedMetadata={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     onTimeUpdate={[Function]}
     src={null}
   />
@@ -22,6 +24,8 @@ exports[`Player when is playing it renders correctly 1`] = `
     height={480}
     onClick={[Function]}
     onLoadedMetadata={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     onTimeUpdate={[Function]}
     src={null}
   />
@@ -69,6 +73,8 @@ exports[`Player without props it renders correctly 1`] = `
     height={480}
     onClick={[Function]}
     onLoadedMetadata={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
     onTimeUpdate={[Function]}
     src={null}
   />
