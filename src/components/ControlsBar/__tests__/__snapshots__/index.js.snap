@@ -2,7 +2,7 @@
 
 exports[`ControlsBar with all props it renders correctly 1`] = `
 <div
-  className="css-17eql88"
+  className="css-12alag6"
 >
   <span
     className="css-dw3c54"
@@ -25,7 +25,7 @@ exports[`ControlsBar with all props it renders correctly 1`] = `
     </svg>
   </span>
   <span
-    className="css-7vf4kv"
+    className="css-791lfk"
   >
     00:01:39 / 00:16:39
   </span>
@@ -34,7 +34,7 @@ exports[`ControlsBar with all props it renders correctly 1`] = `
 
 exports[`ControlsBar without pause prop it renders correctly 1`] = `
 <div
-  className="css-17eql88"
+  className="css-12alag6"
 >
   <span
     className="css-dw3c54"
@@ -57,7 +57,7 @@ exports[`ControlsBar without pause prop it renders correctly 1`] = `
     </svg>
   </span>
   <span
-    className="css-7vf4kv"
+    className="css-791lfk"
   >
     00:01:39 / 00:16:39
   </span>
@@ -66,7 +66,7 @@ exports[`ControlsBar without pause prop it renders correctly 1`] = `
 
 exports[`ControlsBar without play prop it renders correctly 1`] = `
 <div
-  className="css-17eql88"
+  className="css-12alag6"
 >
   <span
     className="css-dw3c54"
@@ -89,7 +89,7 @@ exports[`ControlsBar without play prop it renders correctly 1`] = `
     </svg>
   </span>
   <span
-    className="css-7vf4kv"
+    className="css-791lfk"
   >
     00:01:39 / 00:16:39
   </span>

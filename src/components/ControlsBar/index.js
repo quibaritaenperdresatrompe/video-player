@@ -8,7 +8,6 @@ import PlayIcon from '../../components/PlayIcon'
 const ControlsBarContainer = glamorous.div({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between',
 })
 
 const ControlContainer = glamorous.span({
@@ -17,6 +16,7 @@ const ControlContainer = glamorous.span({
 
 const TimeContainer = glamorous.span({
   fontSize: '0.6em',
+  padding: '0 0.5em',
 })
 
 const secondsToTime = seconds => new Date(seconds * 1e3).toISOString().substr(11, 8)
