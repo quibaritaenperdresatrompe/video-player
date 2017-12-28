@@ -23,8 +23,8 @@ class Player extends Component {
     this.state = {
       currentTime: 0,
       duration: 0,
-      isPlaying: false,
       isControlsBarHidden: false,
+      isPlaying: false,
     }
   }
 
@@ -35,24 +35,24 @@ class Player extends Component {
   }
 
   handlePause = () => {
-    window.clearTimeout(this.autoHideControlsBarTimeout)
+    this.resetAutoHideControlsBarTimeout()
     this.setState(
       () => ({
         isPlaying: false,
       }),
-      () => this.player.pause(),
+      () => this.pause(),
     )
   }
 
   handlePlay = () => {
-    window.clearTimeout(this.autoHideControlsBarTimeout)
+    this.resetAutoHideControlsBarTimeout()
     this.setState(
       () => ({
         isPlaying: true,
       }),
       () => {
-        this.player.play()
-        this.autoHideControlsBar()
+        this.play()
+        this.setAutoHideControlsBarTimeout()
       },
     )
   }
@@ -63,11 +63,20 @@ class Player extends Component {
     }))
   }
 
-  autoHideControlsBar = () => {
+  hideControlsBar = () => this.setState(() => ({
+    isControlsBarHidden: true,
+  }))
+
+  play = () => this.player.play()
+
+  pause = () => this.player.pause()
+
+  resetAutoHideControlsBarTimeout = () =>
+    window.clearTimeout(this.autoHideControlsBarTimeout)
+
+  setAutoHideControlsBarTimeout = () => {
     this.autoHideControlsBarTimeout = window.setTimeout(
-      () => this.setState(() => ({
-        isControlsBarHidden: true,
-      })),
+      this.hideControlsBar,
       5000,
     )
   }
