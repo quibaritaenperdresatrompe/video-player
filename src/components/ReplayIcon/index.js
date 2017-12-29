@@ -33,8 +33,8 @@ ReplayIcon.propTypes = {
 }
 
 ReplayIcon.defaultProps = {
-  backgroundColor: '#d42929',
-  color: '#fff',
+  backgroundColor: 'hsla(0, 0%, 100%, 1)',
+  color: 'hsla(0, 0%, 100%, 0.8)',
   size: '1em',
 }
 

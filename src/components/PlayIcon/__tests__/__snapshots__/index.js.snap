@@ -20,8 +20,8 @@ exports[`PlayIcon with all props it renders correctly 1`] = `
 
 exports[`PlayIcon without props it renders correctly 1`] = `
 <svg
-  className="css-189tqkb"
-  color="#fff"
+  className="css-diyyq9"
+  color="hsla(0, 0%, 100%, 0.8)"
   height="1em"
   viewBox="0 0 24 24"
   width="1em"

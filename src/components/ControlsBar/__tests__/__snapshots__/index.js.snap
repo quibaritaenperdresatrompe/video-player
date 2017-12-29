@@ -5,12 +5,12 @@ exports[`ControlsBar when it renders pause button it renders correctly 1`] = `
   className="css-12alag6"
 >
   <span
-    className="css-dw3c54"
+    className="css-bcxn3o"
     onClick={[MockFunction]}
   >
     <svg
-      className="css-189tqkb"
-      color="#fff"
+      className="css-diyyq9"
+      color="hsla(0, 0%, 100%, 0.8)"
       height="1.2em"
       viewBox="0 0 24 24"
       width="1.2em"
@@ -25,7 +25,7 @@ exports[`ControlsBar when it renders pause button it renders correctly 1`] = `
     </svg>
   </span>
   <span
-    className="css-791lfk"
+    className="css-1g6ztab"
   >
     00:00:00 / 00:00:00
   </span>
@@ -37,12 +37,12 @@ exports[`ControlsBar when it renders play button it renders correctly 1`] = `
   className="css-12alag6"
 >
   <span
-    className="css-dw3c54"
+    className="css-bcxn3o"
     onClick={[MockFunction]}
   >
     <svg
-      className="css-189tqkb"
-      color="#fff"
+      className="css-diyyq9"
+      color="hsla(0, 0%, 100%, 0.8)"
       height="1.2em"
       viewBox="0 0 24 24"
       width="1.2em"
@@ -57,7 +57,7 @@ exports[`ControlsBar when it renders play button it renders correctly 1`] = `
     </svg>
   </span>
   <span
-    className="css-791lfk"
+    className="css-1g6ztab"
   >
     00:00:00 / 00:00:00
   </span>
@@ -69,12 +69,12 @@ exports[`ControlsBar when it renders replay button it renders correctly 1`] = `
   className="css-12alag6"
 >
   <span
-    className="css-dw3c54"
+    className="css-bcxn3o"
     onClick={[MockFunction]}
   >
     <svg
-      className="css-189tqkb"
-      color="#fff"
+      className="css-diyyq9"
+      color="hsla(0, 0%, 100%, 0.8)"
       height="1.2em"
       viewBox="0 0 24 24"
       width="1.2em"
@@ -89,7 +89,7 @@ exports[`ControlsBar when it renders replay button it renders correctly 1`] = `
     </svg>
   </span>
   <span
-    className="css-791lfk"
+    className="css-1g6ztab"
   >
     00:00:00 / 00:00:00
   </span>
@@ -101,12 +101,12 @@ exports[`ControlsBar when it renders time it renders correctly 1`] = `
   className="css-12alag6"
 >
   <span
-    className="css-dw3c54"
+    className="css-bcxn3o"
     onClick={[MockFunction]}
   >
     <svg
-      className="css-189tqkb"
-      color="#fff"
+      className="css-diyyq9"
+      color="hsla(0, 0%, 100%, 0.8)"
       height="1.2em"
       viewBox="0 0 24 24"
       width="1.2em"
@@ -121,7 +121,7 @@ exports[`ControlsBar when it renders time it renders correctly 1`] = `
     </svg>
   </span>
   <span
-    className="css-791lfk"
+    className="css-1g6ztab"
   >
     00:01:39 / 00:16:39
   </span>
