@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VolumeDownIcon with all props it renders correctly 1`] = `
+<svg
+  className="css-1hgjwxk"
+  color="#fff"
+  height="3em"
+  viewBox="0 0 24 24"
+  width="3em"
+>
+  <path
+    d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z"
+  />
+  <path
+    d="M0 0h24v24H0z"
+    fill="none"
+  />
+</svg>
+`;
+
+exports[`VolumeDownIcon without props it renders correctly 1`] = `
+<svg
+  className="css-diyyq9"
+  color="hsla(0, 0%, 100%, 0.8)"
+  height="1em"
+  viewBox="0 0 24 24"
+  width="1em"
+>
+  <path
+    d="M18.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM5 9v6h4l5 5V4L9 9H5z"
+  />
+  <path
+    d="M0 0h24v24H0z"
+    fill="none"
+  />
+</svg>
+`;
