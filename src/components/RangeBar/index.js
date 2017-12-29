@@ -3,9 +3,8 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 const RangeBarContainer = glamorous.div(({ size }) => ({
-  margin: `calc(${size} * 5) 0`,
+  margin: `calc(${size} * 2) 0`,
   backgroundColor: 'hsla(0, 0%, 100%, 0.8)',
-  height: size,
   opacity: '0.8',
   position: 'relative',
   ':hover': {

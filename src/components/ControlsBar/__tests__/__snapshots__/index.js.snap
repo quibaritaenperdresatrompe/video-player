@@ -48,7 +48,7 @@ exports[`ControlsBar when is muted volume it renders correctly 1`] = `
     className="css-bcxn3o"
   >
     <div
-      className="css-1i8pure"
+      className="css-wt62u6"
     >
       <input
         className="css-1thazes"
@@ -120,7 +120,7 @@ exports[`ControlsBar when it renders pause button it renders correctly 1`] = `
     className="css-bcxn3o"
   >
     <div
-      className="css-1i8pure"
+      className="css-wt62u6"
     >
       <input
         className="css-1thazes"
@@ -192,7 +192,7 @@ exports[`ControlsBar when it renders play button it renders correctly 1`] = `
     className="css-bcxn3o"
   >
     <div
-      className="css-1i8pure"
+      className="css-wt62u6"
     >
       <input
         className="css-1thazes"
@@ -264,7 +264,7 @@ exports[`ControlsBar when it renders replay button it renders correctly 1`] = `
     className="css-bcxn3o"
   >
     <div
-      className="css-1i8pure"
+      className="css-wt62u6"
     >
       <input
         className="css-1thazes"
@@ -336,7 +336,7 @@ exports[`ControlsBar when it renders time it renders correctly 1`] = `
     className="css-bcxn3o"
   >
     <div
-      className="css-1i8pure"
+      className="css-wt62u6"
     >
       <input
         className="css-1thazes"
@@ -408,7 +408,7 @@ exports[`ControlsBar whit low volume it renders correctly 1`] = `
     className="css-bcxn3o"
   >
     <div
-      className="css-1i8pure"
+      className="css-wt62u6"
     >
       <input
         className="css-1thazes"
@@ -480,7 +480,7 @@ exports[`ControlsBar whit min volume it renders correctly 1`] = `
     className="css-bcxn3o"
   >
     <div
-      className="css-1i8pure"
+      className="css-wt62u6"
     >
       <input
         className="css-1thazes"
