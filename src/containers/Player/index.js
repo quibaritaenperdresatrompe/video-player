@@ -5,6 +5,8 @@ import React, { Component } from 'react'
 import ControlsBar from '../../components/ControlsBar'
 import SeekBar from '../../components/SeekBar'
 
+export const SPACE_KEY_CODE = 32
+
 const PlayerContainer = glamorous.div(({ isCursorHidden }) => ({
   cursor: isCursorHidden ? 'none' : 'default',
   minHeight: '480px',
@@ -26,28 +28,50 @@ class Player extends Component {
       autoHideControlsBarTimeout: null,
       currentTime: 0,
       duration: 0,
-      isControlsBarHidden: false,
       isComplete: false,
+      isControlsBarHidden: false,
+      isFocused: false,
       isPlaying: false,
     }
   }
 
-  handleMouseEnter = () => {
-    this.showControlsBar(true)
+  componentWillMount() {
+    window.addEventListener('keyup', this.handleKeyUp)
   }
 
-  handleMouseLeave = () => {
-    this.hideControlsBar()
+  componentWillUnmount() {
+    window.removeEventListener('keyup', this.handleKeyUp)
   }
 
-  handleMouseMove = () => {
-    this.showControlsBar(true)
+  handleKeyUp = ({ keyCode }) => {
+    if (this.state.isFocused && keyCode === SPACE_KEY_CODE) {
+      if (this.state.isPlaying) this.handlePause()
+      else this.handlePlay()
+    }
   }
 
   handleLoad = () => {
     this.setState(() => ({
       duration: this.player.duration,
     }))
+  }
+
+  handleMouseEnter = () => {
+    this.showControlsBar(true)
+    this.setState(() => ({
+      isFocused: true,
+    }))
+  }
+
+  handleMouseLeave = () => {
+    this.hideControlsBar()
+    this.setState(() => ({
+      isFocused: false,
+    }))
+  }
+
+  handleMouseMove = () => {
+    this.showControlsBar(true)
   }
 
   handlePause = () => {

@@ -1,4 +1,4 @@
-import Player from '../'
+import Player, { SPACE_KEY_CODE } from '../'
 
 import itRendersAllMutations from '../../../utils/jest-it-renders-all-mutations'
 
@@ -25,32 +25,78 @@ const mutations = [
 describe(Player.name, () => {
   itRendersAllMutations(Player, mutations)
 
+  describe('lifecycle', function scope() {
+    beforeEach(() => {
+      this.Player = new Player()
+    })
+
+    describe('componentWillMount', () => {
+      test('it calls addEventListener', () => {
+        this.Player.handleKeyUp = jest.fn()
+        this.Player.componentWillMount()
+        expect(window.addEventListener).toHaveBeenCalledWith('keyup', this.Player.handleKeyUp)
+      })
+    })
+
+    describe('componentWillUnmount', () => {
+      test('it calls removeEventListener', () => {
+        this.Player.handleKeyUp = jest.fn()
+        this.Player.componentWillUnmount()
+        expect(window.removeEventListener).toHaveBeenCalledWith('keyup', this.Player.handleKeyUp)
+      })
+    })
+  })
+
   describe('handlers', function scope() {
     beforeEach(() => {
       this.Player = new Player()
     })
 
-    describe('handleMouseEnter', () => {
-      test('it calls showControlsBar', () => {
-        this.Player.showControlsBar = jest.fn()
-        this.Player.handleMouseEnter()
-        expect(this.Player.showControlsBar).toHaveBeenCalledWith(true)
+    describe('handleKeyUp', () => {
+      test('it does nothing', () => {
+        this.Player.state = {
+          isFocused: false,
+        }
+        this.Player.handlePause = jest.fn()
+        this.Player.handlePlay = jest.fn()
+        this.Player.handleKeyUp({})
+        expect(this.Player.handlePause).not.toHaveBeenCalled()
+        expect(this.Player.handlePlay).not.toHaveBeenCalled()
       })
-    })
-
-    describe('handleMouseLeave', () => {
-      test('it calls hideControlsBar', () => {
-        this.Player.hideControlsBar = jest.fn()
-        this.Player.handleMouseLeave()
-        expect(this.Player.hideControlsBar).toHaveBeenCalled()
+      test('it does nothing', () => {
+        this.Player.state = {
+          isFocused: true,
+        }
+        const event = { keyCode: 0 }
+        this.Player.handlePause = jest.fn()
+        this.Player.handlePlay = jest.fn()
+        this.Player.handleKeyUp(event)
+        expect(this.Player.handlePause).not.toHaveBeenCalled()
+        expect(this.Player.handlePlay).not.toHaveBeenCalled()
       })
-    })
-
-    describe('handleMouseMove', () => {
-      test('it calls showControlsBar', () => {
-        this.Player.showControlsBar = jest.fn()
-        this.Player.handleMouseMove()
-        expect(this.Player.showControlsBar).toHaveBeenCalledWith(true)
+      test('it calls handlePause', () => {
+        this.Player.state = {
+          isFocused: true,
+          isPlaying: true,
+        }
+        const event = { keyCode: SPACE_KEY_CODE }
+        this.Player.handlePause = jest.fn()
+        this.Player.handlePlay = jest.fn()
+        this.Player.handleKeyUp(event)
+        expect(this.Player.handlePause).toHaveBeenCalled()
+        expect(this.Player.handlePlay).not.toHaveBeenCalled()
+      })
+      test('it calls handlePlay', () => {
+        this.Player.state = {
+          isFocused: true,
+          isPlaying: false,
+        }
+        const event = { keyCode: SPACE_KEY_CODE }
+        this.Player.handlePause = jest.fn()
+        this.Player.handlePlay = jest.fn()
+        this.Player.handleKeyUp(event)
+        expect(this.Player.handlePause).not.toHaveBeenCalled()
+        expect(this.Player.handlePlay).toHaveBeenCalled()
       })
     })
 
@@ -59,6 +105,34 @@ describe(Player.name, () => {
         this.Player.setState = jest.fn()
         this.Player.handleLoad()
         expect(this.Player.setState).toHaveBeenCalled()
+      })
+    })
+
+    describe('handleMouseEnter', () => {
+      test('it calls showControlsBar and setState', () => {
+        this.Player.showControlsBar = jest.fn()
+        this.Player.setState = jest.fn()
+        this.Player.handleMouseEnter()
+        expect(this.Player.showControlsBar).toHaveBeenCalledWith(true)
+        expect(this.Player.setState).toHaveBeenCalled()
+      })
+    })
+
+    describe('handleMouseLeave', () => {
+      test('it calls hideControlsBar and setState', () => {
+        this.Player.hideControlsBar = jest.fn()
+        this.Player.setState = jest.fn()
+        this.Player.handleMouseLeave()
+        expect(this.Player.hideControlsBar).toHaveBeenCalled()
+        expect(this.Player.setState).toHaveBeenCalled()
+      })
+    })
+
+    describe('handleMouseMove', () => {
+      test('it calls showControlsBar', () => {
+        this.Player.showControlsBar = jest.fn()
+        this.Player.handleMouseMove()
+        expect(this.Player.showControlsBar).toHaveBeenCalledWith(true)
       })
     })
 
