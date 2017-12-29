@@ -54,12 +54,12 @@ exports[`Player when is playing it renders correctly 1`] = `
       className="css-12alag6"
     >
       <span
-        className="css-dw3c54"
+        className="css-bcxn3o"
         onClick={[Function]}
       >
         <svg
-          className="css-189tqkb"
-          color="#fff"
+          className="css-gt3xp3"
+          color="hsla(0, 0%, 100%, 0.8)"
           height="1.2em"
           viewBox="0 0 24 24"
           width="1.2em"
@@ -74,7 +74,7 @@ exports[`Player when is playing it renders correctly 1`] = `
         </svg>
       </span>
       <span
-        className="css-791lfk"
+        className="css-1g6ztab"
       >
         00:00:00 / 00:00:00
       </span>
@@ -120,12 +120,12 @@ exports[`Player without props it renders correctly 1`] = `
       className="css-12alag6"
     >
       <span
-        className="css-dw3c54"
+        className="css-bcxn3o"
         onClick={[Function]}
       >
         <svg
-          className="css-189tqkb"
-          color="#fff"
+          className="css-gt3xp3"
+          color="hsla(0, 0%, 100%, 0.8)"
           height="1.2em"
           viewBox="0 0 24 24"
           width="1.2em"
@@ -140,7 +140,7 @@ exports[`Player without props it renders correctly 1`] = `
         </svg>
       </span>
       <span
-        className="css-791lfk"
+        className="css-1g6ztab"
       >
         00:00:00 / 00:00:00
       </span>
