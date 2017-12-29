@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon with a known iconName props it renders correctly 1`] = `
+<svg
+  className="css-gt3xp3"
+  color="hsla(0, 0%, 100%, 0.8)"
+  height="1em"
+  viewBox="0 0 24 24"
+  width="1em"
+>
+  <path
+    d="M8 5v14l11-7z"
+  />
+  <path
+    d="M0 0h24v24H0z"
+    fill="none"
+  />
+</svg>
+`;
+
+exports[`Icon with all props it renders correctly 1`] = `
+<svg
+  className="css-5n7asi"
+  color="#fff"
+  height="3em"
+  viewBox="0 0 24 24"
+  width="3em"
+>
+  <path
+    d="M8 5v14l11-7z"
+  />
+  <path
+    d="M0 0h24v24H0z"
+    fill="none"
+  />
+</svg>
+`;
+
+exports[`Icon with an unknown iconName props it renders correctly 1`] = `null`;
+
+exports[`Icon without props it renders correctly 1`] = `null`;
