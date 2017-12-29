@@ -75,6 +75,7 @@ exports[`Player when is playing it renders correctly 1`] = `
       </span>
       <span
         className="css-bcxn3o"
+        onClick={[Function]}
       >
         <svg
           className="css-gt3xp3"
@@ -160,6 +161,7 @@ exports[`Player without props it renders correctly 1`] = `
       </span>
       <span
         className="css-bcxn3o"
+        onClick={[Function]}
       >
         <svg
           className="css-gt3xp3"

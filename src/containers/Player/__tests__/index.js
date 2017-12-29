@@ -138,6 +138,16 @@ describe(Player.name, () => {
       })
     })
 
+    describe('handleMute', () => {
+      test('it calls mute and setState', () => {
+        this.Player.mute = jest.fn()
+        this.Player.setState = jest.fn()
+        this.Player.handleMute()
+        expect(this.Player.mute).toHaveBeenCalled()
+        expect(this.Player.setState).toHaveBeenCalled()
+      })
+    })
+
     describe('handlePause', () => {
       test('it calls pause, showControlsBar, and setState', () => {
         this.Player.pause = jest.fn()
@@ -180,6 +190,16 @@ describe(Player.name, () => {
         expect(this.Player.setState).toHaveBeenCalled()
       })
     })
+
+    describe('handleUnmute', () => {
+      test('it calls unmute and setState', () => {
+        this.Player.unmute = jest.fn()
+        this.Player.setState = jest.fn()
+        this.Player.handleUnmute()
+        expect(this.Player.unmute).toHaveBeenCalled()
+        expect(this.Player.setState).toHaveBeenCalled()
+      })
+    })
   })
 
   describe('functions', function scope() {
@@ -207,6 +227,26 @@ describe(Player.name, () => {
         this.Player.hideControlsBarWithDelay()
         expect(window.setTimeout).toHaveBeenCalled()
         expect(this.Player.setState).toHaveBeenCalled()
+      })
+    })
+
+    describe('mute', () => {
+      test('it sets player.muted to true', () => {
+        this.Player.player = {
+          muted: false,
+        }
+        this.Player.mute()
+        expect(this.Player.player.muted).toBe(true)
+      })
+    })
+
+    describe('unmute', () => {
+      test('it sets player.muted to false', () => {
+        this.Player.player = {
+          muted: true,
+        }
+        this.Player.unmute()
+        expect(this.Player.player.muted).toBe(false)
       })
     })
 

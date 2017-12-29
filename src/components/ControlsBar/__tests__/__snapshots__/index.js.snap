@@ -26,6 +26,7 @@ exports[`ControlsBar when is muted volume it renders correctly 1`] = `
   </span>
   <span
     className="css-bcxn3o"
+    onClick={[Function]}
   >
     <svg
       className="css-gt3xp3"
@@ -77,6 +78,7 @@ exports[`ControlsBar when it renders pause button it renders correctly 1`] = `
   </span>
   <span
     className="css-bcxn3o"
+    onClick={[Function]}
   >
     <svg
       className="css-gt3xp3"
@@ -128,6 +130,7 @@ exports[`ControlsBar when it renders play button it renders correctly 1`] = `
   </span>
   <span
     className="css-bcxn3o"
+    onClick={[Function]}
   >
     <svg
       className="css-gt3xp3"
@@ -179,6 +182,7 @@ exports[`ControlsBar when it renders replay button it renders correctly 1`] = `
   </span>
   <span
     className="css-bcxn3o"
+    onClick={[Function]}
   >
     <svg
       className="css-gt3xp3"
@@ -230,6 +234,7 @@ exports[`ControlsBar when it renders time it renders correctly 1`] = `
   </span>
   <span
     className="css-bcxn3o"
+    onClick={[Function]}
   >
     <svg
       className="css-gt3xp3"
@@ -281,6 +286,7 @@ exports[`ControlsBar whit low volume it renders correctly 1`] = `
   </span>
   <span
     className="css-bcxn3o"
+    onClick={[Function]}
   >
     <svg
       className="css-gt3xp3"
@@ -332,6 +338,7 @@ exports[`ControlsBar whit min volume it renders correctly 1`] = `
   </span>
   <span
     className="css-bcxn3o"
+    onClick={[Function]}
   >
     <svg
       className="css-gt3xp3"

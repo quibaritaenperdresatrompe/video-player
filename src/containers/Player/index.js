@@ -76,6 +76,13 @@ class Player extends Component {
     this.showControlsBar(true)
   }
 
+  handleMute = () => {
+    this.mute()
+    this.setState(() => ({
+      isMuted: true,
+    }))
+  }
+
   handlePause = () => {
     this.pause()
     this.setState(() => ({
@@ -104,6 +111,13 @@ class Player extends Component {
     }))
   }
 
+  handleUnmute = () => {
+    this.unmute()
+    this.setState(() => ({
+      isMuted: false,
+    }))
+  }
+
   hideControlsBar = (isDelayed = false) => {
     if (isDelayed) {
       this.hideControlsBarWithDelay()
@@ -119,6 +133,14 @@ class Player extends Component {
     this.setState(() => ({
       autoHideControlsBarTimeout: timeout,
     }))
+  }
+
+  mute = () => {
+    this.player.muted = true
+  }
+
+  unmute = () => {
+    this.player.muted = false
   }
 
   play = () => this.player.play()
@@ -162,6 +184,8 @@ class Player extends Component {
           isComplete={isComplete}
           isMuted={isMuted}
           isPlaying={isPlaying}
+          mute={this.handleMute}
+          unmute={this.handleUnmute}
           pause={this.handlePause}
           play={this.handlePlay}
           volume={volume}

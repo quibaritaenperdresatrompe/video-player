@@ -75,9 +75,14 @@ class ControlsBar extends Component {
   }
 
   renderVolume = () => {
+    const {
+      isMuted,
+      mute,
+      unmute,
+    } = this.props
     const VolumeIcon = this.getVolumeIcon()
     return (
-      <ControlContainer>
+      <ControlContainer onClick={isMuted ? unmute : mute}>
         <Icon
           iconName={VolumeIcon}
           size='1.2em'
@@ -109,8 +114,10 @@ ControlsBar.propTypes = {
   isComplete: PropTypes.bool,
   isMuted: PropTypes.bool,
   isPlaying: PropTypes.bool,
+  mute: PropTypes.func,
   pause: PropTypes.func,
   play: PropTypes.func,
+  unmute: PropTypes.func,
   volume: PropTypes.number,
 }
 
@@ -120,8 +127,10 @@ ControlsBar.defaultProps = {
   isComplete: false,
   isMuted: false,
   isPlaying: false,
+  mute: () => undefined,
   pause: null,
   play: null,
+  unmute: () => undefined,
   volume: 1,
 }
 
