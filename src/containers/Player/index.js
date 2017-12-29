@@ -4,10 +4,11 @@ import React, { Component } from 'react'
 
 import ControlsBar from '../../components/ControlsBar'
 
-const PlayerContainer = glamorous.div({
+const PlayerContainer = glamorous.div(({ isCursorHidden }) => ({
+  cursor: isCursorHidden ? 'none' : 'default',
   minHeight: '480px',
   position: 'relative',
-})
+}))
 
 const ControlsBarContainer = glamorous.div({
   background: 'linear-gradient(bottom, hsl(0, 0%, 14%) 0%, transparent 100%)',
@@ -21,21 +22,24 @@ class Player extends Component {
   constructor() {
     super()
     this.state = {
+      autoHideControlsBarTimeout: null,
       currentTime: 0,
       duration: 0,
       isControlsBarHidden: false,
       isPlaying: false,
     }
-    this.autoHideControlsBarTimeout = null
   }
 
   handleMouseEnter = () => {
-    this.showControlsBar()
-    this.hideControlsBarWithDelay()
+    this.showControlsBar(true)
   }
 
   handleMouseLeave = () => {
     this.hideControlsBar()
+  }
+
+  handleMouseMove = () => {
+    this.showControlsBar(true)
   }
 
   handleOnLoad = () => {
@@ -45,27 +49,19 @@ class Player extends Component {
   }
 
   handlePause = () => {
-    this.setState(
-      () => ({
-        isPlaying: false,
-      }),
-      () => {
-        this.pause()
-        this.showControlsBar()
-      },
-    )
+    this.pause()
+    this.setState(() => ({
+      isPlaying: false,
+    }))
+    this.showControlsBar()
   }
 
   handlePlay = () => {
-    this.setState(
-      () => ({
-        isPlaying: true,
-      }),
-      () => {
-        this.play()
-        this.hideControlsBarWithDelay()
-      },
-    )
+    this.play()
+    this.setState(() => ({
+      isPlaying: true,
+    }))
+    this.hideControlsBar(true)
   }
 
   handleTimeUpdate = () => {
@@ -74,39 +70,46 @@ class Player extends Component {
     }))
   }
 
-  hideControlsBar = () => {
-    this.setState(() => ({
-      isControlsBarHidden: true,
-    }))
+  hideControlsBar = (isDelayed = false) => {
+    if (isDelayed) {
+      this.hideControlsBarWithDelay()
+    } else {
+      this.setState(() => ({
+        isControlsBarHidden: true,
+      }))
+    }
   }
 
   hideControlsBarWithDelay = () => {
-    this.autoHideControlsBarTimeout = window.setTimeout(
-      this.hideControlsBar,
-      5000,
-    )
+    const timeout = window.setTimeout(this.hideControlsBar, 3e3)
+    this.setState(() => ({
+      autoHideControlsBarTimeout: timeout,
+    }))
   }
 
   play = () => this.player.play()
 
   pause = () => this.player.pause()
 
-  resetAutoHideControlsBarTimeout = () => {
-    if (this.autoHideControlsBarTimeout) {
-      window.clearTimeout(this.autoHideControlsBarTimeout)
-    }
+  showControlsBar = (isTemporary = false) => {
+    window.clearTimeout(this.state.autoHideControlsBarTimeout)
+    this.setState(
+      () => ({
+        isControlsBarHidden: false,
+      }),
+      () => {
+        if (isTemporary) this.hideControlsBarWithDelay()
+      },
+    )
   }
 
-  showControlsBar = () => {
-    this.setState(() => ({
-      isControlsBarHidden: false,
-    }))
-    this.resetAutoHideControlsBarTimeout()
-  }
+
   }
 
   renderControlsBar = () => {
     const {
+      currentTime,
+      duration,
       isPlaying,
       isControlsBarHidden,
     } = this.state
@@ -115,8 +118,8 @@ class Player extends Component {
     return (
       <ControlsBarContainer>
         <ControlsBar
-          currentTime={this.state.currentTime}
-          duration={this.state.duration}
+          currentTime={currentTime}
+          duration={duration}
           pause={isPlaying ? this.handlePause : null}
           play={isPlaying ? null : this.handlePlay}
         />
@@ -125,14 +128,24 @@ class Player extends Component {
   }
 
   render() {
+    const {
+      isPlaying,
+      isControlsBarHidden,
+    } = this.state
+    const controlAction = isPlaying ? this.handlePause : this.handlePlay
+    const isCursorHidden = isPlaying && isControlsBarHidden
+
     return (
-      <PlayerContainer>
+      <PlayerContainer
+        isCursorHidden={isCursorHidden}
+        onMouseEnter={this.handleMouseEnter}
+        onMouseLeave={this.handleMouseLeave}
+        onMouseMove={this.handleMouseMove}
+      >
         <video
           height={480}
-          onClick={this.state.isPlaying ? this.handlePause : this.handlePlay}
+          onClick={controlAction}
           onLoadedMetadata={this.handleOnLoad}
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
           onTimeUpdate={this.handleTimeUpdate}
           ref={el => { this.player = el }}
           src={this.props.currentSource}
