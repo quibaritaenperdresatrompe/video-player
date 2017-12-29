@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RangeBar when it is at the end it renders correctly 1`] = `
+<div
+  className="css-1tbhals"
+>
+  <input
+    className="css-aav0sr"
+    max={10}
+    onChange={[Function]}
+    size="0.2em"
+    step="any"
+    type="range"
+    value={10}
+  />
+  <div
+    className="css-1jwjj7r"
+  />
+</div>
+`;
+
+exports[`RangeBar whith all props it renders correctly 1`] = `
+<div
+  className="css-n5xm19"
+>
+  <input
+    className="css-1vgo5h5"
+    max={10}
+    onChange={[Function]}
+    size="3em"
+    step="any"
+    type="range"
+    value={10}
+  />
+  <div
+    className="css-4xxlbu"
+  />
+</div>
+`;
+
+exports[`RangeBar without currentValue and maxValue it renders correctly 1`] = `
+<div
+  className="css-1tbhals"
+>
+  <input
+    className="css-aav0sr"
+    max={10}
+    onChange={[Function]}
+    size="0.2em"
+    step="any"
+    type="range"
+    value={9}
+  />
+  <div
+    className="css-f50oys"
+  />
+</div>
+`;
+
+exports[`RangeBar without props it renders correctly 1`] = `
+<div
+  className="css-1tbhals"
+>
+  <input
+    className="css-aav0sr"
+    max={0}
+    onChange={[Function]}
+    size="0.2em"
+    step="any"
+    type="range"
+    value={0}
+  />
+  <div
+    className="css-1hte4yv"
+  />
+</div>
+`;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 import ControlsBar from '../../components/ControlsBar'
-import SeekBar from '../../components/SeekBar'
+import RangeBar from '../../components/RangeBar'
 
 export const SPACE_KEY_CODE = 32
 
@@ -173,10 +173,11 @@ class Player extends Component {
     if (isPlaying && !isComplete && isControlsBarHidden) return null
     return (
       <ControlsBarContainer>
-        <SeekBar
-          currentTime={currentTime}
-          duration={duration}
-          seekTo={this.handleSeekTo}
+        <RangeBar
+          currentValue={currentTime}
+          maxValue={duration}
+          setTo={this.handleSeekTo}
+          color='hsl(0, 68%, 50%)'
         />
         <ControlsBar
           currentTime={currentTime}

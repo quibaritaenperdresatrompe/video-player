@@ -2,7 +2,7 @@ import glamorous from 'glamorous'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
-const SeekBarContainer = glamorous.div(({ size }) => ({
+const RangeBarContainer = glamorous.div(({ size }) => ({
   margin: '0.5em 0',
   backgroundColor: 'hsla(0, 0%, 100%, 0.8)',
   height: size,
@@ -13,10 +13,10 @@ const SeekBarContainer = glamorous.div(({ size }) => ({
   },
 }))
 
-const StyledSeekBar = glamorous.input(({ size }) => {
+const StyledRangeBar = glamorous.input(({ color, size }) => {
   const thumbStyle = {
     appearance: 'none',
-    backgroundColor: 'hsl(0, 68%, 50%)',
+    backgroundColor: color,
     border: 0,
     borderRadius: '50%',
     height: `calc(${size} * 5)`,
@@ -39,8 +39,8 @@ const StyledSeekBar = glamorous.input(({ size }) => {
   }
 })
 
-const StyledProgressBar = glamorous.div(({ progress }) => ({
-  backgroundColor: 'hsl(0, 68%, 50%)',
+const StyledCurrentValueBar = glamorous.div(({ color, progress }) => ({
+  backgroundColor: color,
   height: '100%',
   left: 0,
   position: 'absolute',
@@ -50,63 +50,68 @@ const StyledProgressBar = glamorous.div(({ progress }) => ({
     : `calc(${progress}% + 1px)`,
 }))
 
-class SeekBar extends Component {
+class RangeBar extends Component {
   constructor() {
     super()
     this.state = {
-      isSeeking: false,
+      isSetting: false,
     }
   }
 
   handleChange = ({ target: { value } }) => {
-    this.props.seekTo(parseFloat(value, 10))
+    this.props.setTo(parseFloat(value, 10))
     this.setState(() => ({
-      isSeeking: true,
+      isSetting: true,
     }))
   }
 
   render() {
     const {
-      currentTime,
-      duration,
+      color,
+      currentValue,
+      maxValue,
       size,
     } = this.props
 
-    const progress = duration === 0
+    const progress = maxValue === 0
       ? 0
-      : (currentTime * 100) / duration
+      : (currentValue * 100) / maxValue
 
     return (
-      <SeekBarContainer size={size}>
-        <StyledSeekBar
-          max={duration}
+      <RangeBarContainer size={size}>
+        <StyledRangeBar
+          color={color}
+          max={maxValue}
           onChange={this.handleChange}
           size={size}
           step='any'
           type='range'
-          value={currentTime}
+          value={currentValue}
         />
-        <StyledProgressBar
+        <StyledCurrentValueBar
+          color={color}
           progress={progress}
           size={size}
         />
-      </SeekBarContainer>
+      </RangeBarContainer>
     )
   }
 }
 
-SeekBar.propTypes = {
-  currentTime: PropTypes.number,
-  duration: PropTypes.number,
-  seekTo: PropTypes.func,
+RangeBar.propTypes = {
+  color: PropTypes.string,
+  currentValue: PropTypes.number,
+  maxValue: PropTypes.number,
+  setTo: PropTypes.func,
   size: PropTypes.string,
 }
 
-SeekBar.defaultProps = {
-  currentTime: 0,
-  duration: 0,
-  seekTo: () => undefined,
+RangeBar.defaultProps = {
+  color: 'hsla(0, 0%, 100%, 1)',
+  currentValue: 0,
+  maxValue: 0,
+  setTo: () => undefined,
   size: '0.2em',
 }
 
-export default SeekBar
+export default RangeBar
