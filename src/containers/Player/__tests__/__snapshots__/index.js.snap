@@ -35,6 +35,22 @@ exports[`Player when is playing it renders correctly 1`] = `
     className="css-ahjn9t"
   >
     <div
+      className="css-1tbhals"
+    >
+      <input
+        className="css-19h4nxv"
+        max={0}
+        onChange={[Function]}
+        size="0.2em"
+        step="any"
+        type="range"
+        value={0}
+      />
+      <div
+        className="css-1voc2x1"
+      />
+    </div>
+    <div
       className="css-12alag6"
     >
       <span
@@ -84,6 +100,22 @@ exports[`Player without props it renders correctly 1`] = `
   <div
     className="css-ahjn9t"
   >
+    <div
+      className="css-1tbhals"
+    >
+      <input
+        className="css-19h4nxv"
+        max={0}
+        onChange={[Function]}
+        size="0.2em"
+        step="any"
+        type="range"
+        value={0}
+      />
+      <div
+        className="css-1voc2x1"
+      />
+    </div>
     <div
       className="css-12alag6"
     >

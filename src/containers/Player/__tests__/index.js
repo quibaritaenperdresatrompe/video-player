@@ -86,6 +86,17 @@ describe(Player.name, () => {
       })
     })
 
+    describe('handleSeekTo', () => {
+      test('it calls setState', () => {
+        this.Player.player = {
+          currentTime: 9,
+        }
+        this.Player.setState = jest.fn()
+        this.Player.handleSeekTo()
+        expect(this.Player.setState).toHaveBeenCalled()
+      })
+    })
+
     describe('handleTimeUpdate', () => {
       test('it calls setState', () => {
         this.Player.setState = jest.fn()

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 import ControlsBar from '../../components/ControlsBar'
+import SeekBar from '../../components/SeekBar'
 
 const PlayerContainer = glamorous.div(({ isCursorHidden }) => ({
   cursor: isCursorHidden ? 'none' : 'default',
@@ -65,6 +66,11 @@ class Player extends Component {
     this.hideControlsBar(true)
   }
 
+  handleSeekTo = currentTime => {
+    this.player.currentTime = currentTime
+    this.setState(() => ({ currentTime }))
+  }
+
   handleTimeUpdate = () => {
     this.setState(() => ({
       currentTime: this.player.currentTime,
@@ -105,9 +111,6 @@ class Player extends Component {
     )
   }
 
-
-  }
-
   renderControlsBar = () => {
     const {
       currentTime,
@@ -117,9 +120,14 @@ class Player extends Component {
       isComplete,
     } = this.state
 
-    if (isPlaying && isControlsBarHidden) return null
+    if (isPlaying && !isComplete && isControlsBarHidden) return null
     return (
       <ControlsBarContainer>
+        <SeekBar
+          currentTime={currentTime}
+          duration={duration}
+          seekTo={this.handleSeekTo}
+        />
         <ControlsBar
           currentTime={currentTime}
           duration={duration}
