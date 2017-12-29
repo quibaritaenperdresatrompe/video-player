@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 
 import PauseIcon from '../../components/PauseIcon'
 import PlayIcon from '../../components/PlayIcon'
+import ReplayIcon from '../../components/ReplayIcon'
 
 const ControlsBarContainer = glamorous.div({
   display: 'flex',
@@ -22,15 +23,30 @@ const TimeContainer = glamorous.span({
 const secondsToTime = seconds => new Date(seconds * 1e3).toISOString().substr(11, 8)
 
 class ControlsBar extends Component {
-  renderPlayPause = () => {
+  getIcon = () => {
     const {
+      isPlaying,
+      isComplete,
+    } = this.props
+
+    if (isComplete) return ReplayIcon
+    if (isPlaying) return PauseIcon
+    return PlayIcon
+  }
+
+  renderAction = () => {
+    const {
+      isPlaying,
+      isComplete,
       pause,
       play,
     } = this.props
 
+    const Icon = this.getIcon()
+
     return (
-      <ControlContainer onClick={pause || play}>
-        {play ? <PlayIcon size='1.2em' /> : <PauseIcon size='1.2em' />}
+      <ControlContainer onClick={isPlaying && !isComplete ? pause : play}>
+        <Icon size='1.2em' />
       </ControlContainer>
     )
   }
@@ -54,7 +70,7 @@ class ControlsBar extends Component {
     if (!pause && !play) return null
     return (
       <ControlsBarContainer>
-        {this.renderPlayPause()}
+        {this.renderAction()}
         {this.renderTime()}
       </ControlsBarContainer>
     )
@@ -64,6 +80,8 @@ class ControlsBar extends Component {
 ControlsBar.propTypes = {
   currentTime: PropTypes.number,
   duration: PropTypes.number,
+  isComplete: PropTypes.bool,
+  isPlaying: PropTypes.bool,
   pause: PropTypes.func,
   play: PropTypes.func,
 }
@@ -71,6 +89,8 @@ ControlsBar.propTypes = {
 ControlsBar.defaultProps = {
   currentTime: 0,
   duration: 0,
+  isComplete: false,
+  isPlaying: false,
   pause: null,
   play: null,
 }

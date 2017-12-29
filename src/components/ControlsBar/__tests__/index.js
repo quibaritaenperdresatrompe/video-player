@@ -8,7 +8,7 @@ const mutations = [
     props: null,
   },
   {
-    name: 'with all props',
+    name: 'when it renders time',
     props: {
       currentTime: 99,
       duration: 999,
@@ -17,19 +17,28 @@ const mutations = [
     },
   },
   {
-    name: 'without pause prop',
+    name: 'when it renders play button',
     props: {
-      currentTime: 99,
-      duration: 999,
+      pause: jest.fn(),
       play: jest.fn(),
+      isPlaying: false,
+      isComplete: false,
     },
   },
   {
-    name: 'without play prop',
+    name: 'when it renders pause button',
     props: {
-      currentTime: 99,
-      duration: 999,
       pause: jest.fn(),
+      play: jest.fn(),
+      isPlaying: true,
+    },
+  },
+  {
+    name: 'when it renders replay button',
+    props: {
+      pause: jest.fn(),
+      play: jest.fn(),
+      isComplete: true,
     },
   },
 ]

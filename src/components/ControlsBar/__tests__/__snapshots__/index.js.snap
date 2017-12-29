@@ -1,70 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ControlsBar with all props it renders correctly 1`] = `
-<div
-  className="css-12alag6"
->
-  <span
-    className="css-dw3c54"
-    onClick={[MockFunction]}
-  >
-    <svg
-      className="css-189tqkb"
-      color="#fff"
-      height="1.2em"
-      viewBox="0 0 24 24"
-      width="1.2em"
-    >
-      <path
-        d="M8 5v14l11-7z"
-      />
-      <path
-        d="M0 0h24v24H0z"
-        fill="none"
-      />
-    </svg>
-  </span>
-  <span
-    className="css-791lfk"
-  >
-    00:01:39 / 00:16:39
-  </span>
-</div>
-`;
-
-exports[`ControlsBar without pause prop it renders correctly 1`] = `
-<div
-  className="css-12alag6"
->
-  <span
-    className="css-dw3c54"
-    onClick={[MockFunction]}
-  >
-    <svg
-      className="css-189tqkb"
-      color="#fff"
-      height="1.2em"
-      viewBox="0 0 24 24"
-      width="1.2em"
-    >
-      <path
-        d="M8 5v14l11-7z"
-      />
-      <path
-        d="M0 0h24v24H0z"
-        fill="none"
-      />
-    </svg>
-  </span>
-  <span
-    className="css-791lfk"
-  >
-    00:01:39 / 00:16:39
-  </span>
-</div>
-`;
-
-exports[`ControlsBar without play prop it renders correctly 1`] = `
+exports[`ControlsBar when it renders pause button it renders correctly 1`] = `
 <div
   className="css-12alag6"
 >
@@ -81,6 +17,102 @@ exports[`ControlsBar without play prop it renders correctly 1`] = `
     >
       <path
         d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"
+      />
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+    </svg>
+  </span>
+  <span
+    className="css-791lfk"
+  >
+    00:00:00 / 00:00:00
+  </span>
+</div>
+`;
+
+exports[`ControlsBar when it renders play button it renders correctly 1`] = `
+<div
+  className="css-12alag6"
+>
+  <span
+    className="css-dw3c54"
+    onClick={[MockFunction]}
+  >
+    <svg
+      className="css-189tqkb"
+      color="#fff"
+      height="1.2em"
+      viewBox="0 0 24 24"
+      width="1.2em"
+    >
+      <path
+        d="M8 5v14l11-7z"
+      />
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+    </svg>
+  </span>
+  <span
+    className="css-791lfk"
+  >
+    00:00:00 / 00:00:00
+  </span>
+</div>
+`;
+
+exports[`ControlsBar when it renders replay button it renders correctly 1`] = `
+<div
+  className="css-12alag6"
+>
+  <span
+    className="css-dw3c54"
+    onClick={[MockFunction]}
+  >
+    <svg
+      className="css-189tqkb"
+      color="#fff"
+      height="1.2em"
+      viewBox="0 0 24 24"
+      width="1.2em"
+    >
+      <path
+        d="M0 0h24v24H0z"
+        fill="none"
+      />
+      <path
+        d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"
+      />
+    </svg>
+  </span>
+  <span
+    className="css-791lfk"
+  >
+    00:00:00 / 00:00:00
+  </span>
+</div>
+`;
+
+exports[`ControlsBar when it renders time it renders correctly 1`] = `
+<div
+  className="css-12alag6"
+>
+  <span
+    className="css-dw3c54"
+    onClick={[MockFunction]}
+  >
+    <svg
+      className="css-189tqkb"
+      color="#fff"
+      height="1.2em"
+      viewBox="0 0 24 24"
+      width="1.2em"
+    >
+      <path
+        d="M8 5v14l11-7z"
       />
       <path
         d="M0 0h24v24H0z"
