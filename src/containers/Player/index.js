@@ -31,7 +31,9 @@ class Player extends Component {
       isComplete: false,
       isControlsBarHidden: false,
       isFocused: false,
+      isMuted: false,
       isPlaying: false,
+      volume: 1,
     }
   }
 
@@ -139,9 +141,11 @@ class Player extends Component {
     const {
       currentTime,
       duration,
-      isPlaying,
-      isControlsBarHidden,
       isComplete,
+      isControlsBarHidden,
+      isMuted,
+      isPlaying,
+      volume,
     } = this.state
 
     if (isPlaying && !isComplete && isControlsBarHidden) return null
@@ -155,10 +159,12 @@ class Player extends Component {
         <ControlsBar
           currentTime={currentTime}
           duration={duration}
-          isPlaying={isPlaying}
           isComplete={isComplete}
+          isMuted={isMuted}
+          isPlaying={isPlaying}
           pause={this.handlePause}
           play={this.handlePlay}
+          volume={volume}
         />
       </ControlsBarContainer>
     )

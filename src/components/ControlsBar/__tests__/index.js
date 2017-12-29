@@ -41,6 +41,30 @@ const mutations = [
       isComplete: true,
     },
   },
+  {
+    name: 'whit min volume',
+    props: {
+      pause: jest.fn(),
+      play: jest.fn(),
+      volume: 0,
+    },
+  },
+  {
+    name: 'whit low volume',
+    props: {
+      pause: jest.fn(),
+      play: jest.fn(),
+      volume: 0.2,
+    },
+  },
+  {
+    name: 'when is muted volume',
+    props: {
+      pause: jest.fn(),
+      play: jest.fn(),
+      isMuted: true,
+    },
+  },
 ]
 
 describe(ControlsBar.name, () => {
