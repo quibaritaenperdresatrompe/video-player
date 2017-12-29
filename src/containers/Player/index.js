@@ -26,6 +26,7 @@ class Player extends Component {
       currentTime: 0,
       duration: 0,
       isControlsBarHidden: false,
+      isComplete: false,
       isPlaying: false,
     }
   }
@@ -67,6 +68,7 @@ class Player extends Component {
   handleTimeUpdate = () => {
     this.setState(() => ({
       currentTime: this.player.currentTime,
+      isComplete: this.player.currentTime === this.state.duration,
     }))
   }
 
@@ -112,6 +114,7 @@ class Player extends Component {
       duration,
       isPlaying,
       isControlsBarHidden,
+      isComplete,
     } = this.state
 
     if (isPlaying && isControlsBarHidden) return null
@@ -120,8 +123,10 @@ class Player extends Component {
         <ControlsBar
           currentTime={currentTime}
           duration={duration}
-          pause={isPlaying ? this.handlePause : null}
-          play={isPlaying ? null : this.handlePlay}
+          isPlaying={isPlaying}
+          isComplete={isComplete}
+          pause={this.handlePause}
+          play={this.handlePlay}
         />
       </ControlsBarContainer>
     )
@@ -129,10 +134,11 @@ class Player extends Component {
 
   render() {
     const {
-      isPlaying,
       isControlsBarHidden,
+      isComplete,
+      isPlaying,
     } = this.state
-    const controlAction = isPlaying ? this.handlePause : this.handlePlay
+    const controlAction = isPlaying && !isComplete ? this.handlePause : this.handlePlay
     const isCursorHidden = isPlaying && isControlsBarHidden
 
     return (
