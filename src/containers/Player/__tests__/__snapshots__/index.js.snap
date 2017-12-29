@@ -35,7 +35,7 @@ exports[`Player when is playing it renders correctly 1`] = `
     className="css-ahjn9t"
   >
     <div
-      className="css-1tbhals"
+      className="css-12pnkes"
     >
       <input
         className="css-19h4nxv"
@@ -94,6 +94,26 @@ exports[`Player when is playing it renders correctly 1`] = `
         </svg>
       </span>
       <span
+        className="css-bcxn3o"
+      >
+        <div
+          className="css-1i8pure"
+        >
+          <input
+            className="css-1thazes"
+            max={1}
+            onChange={[Function]}
+            size="0.15em"
+            step="any"
+            type="range"
+            value={1}
+          />
+          <div
+            className="css-1jwjj7r"
+          />
+        </div>
+      </span>
+      <span
         className="css-1g6ztab"
       >
         00:00:00 / 00:00:00
@@ -121,7 +141,7 @@ exports[`Player without props it renders correctly 1`] = `
     className="css-ahjn9t"
   >
     <div
-      className="css-1tbhals"
+      className="css-12pnkes"
     >
       <input
         className="css-19h4nxv"
@@ -178,6 +198,26 @@ exports[`Player without props it renders correctly 1`] = `
             fill="none"
           />
         </svg>
+      </span>
+      <span
+        className="css-bcxn3o"
+      >
+        <div
+          className="css-1i8pure"
+        >
+          <input
+            className="css-1thazes"
+            max={1}
+            onChange={[Function]}
+            size="0.15em"
+            step="any"
+            type="range"
+            value={1}
+          />
+          <div
+            className="css-1jwjj7r"
+          />
+        </div>
       </span>
       <span
         className="css-1g6ztab"

@@ -45,6 +45,26 @@ exports[`ControlsBar when is muted volume it renders correctly 1`] = `
     </svg>
   </span>
   <span
+    className="css-bcxn3o"
+  >
+    <div
+      className="css-1i8pure"
+    >
+      <input
+        className="css-1thazes"
+        max={1}
+        onChange={[Function]}
+        size="0.15em"
+        step="any"
+        type="range"
+        value={1}
+      />
+      <div
+        className="css-1jwjj7r"
+      />
+    </div>
+  </span>
+  <span
     className="css-1g6ztab"
   >
     00:00:00 / 00:00:00
@@ -95,6 +115,26 @@ exports[`ControlsBar when it renders pause button it renders correctly 1`] = `
         fill="none"
       />
     </svg>
+  </span>
+  <span
+    className="css-bcxn3o"
+  >
+    <div
+      className="css-1i8pure"
+    >
+      <input
+        className="css-1thazes"
+        max={1}
+        onChange={[Function]}
+        size="0.15em"
+        step="any"
+        type="range"
+        value={1}
+      />
+      <div
+        className="css-1jwjj7r"
+      />
+    </div>
   </span>
   <span
     className="css-1g6ztab"
@@ -149,6 +189,26 @@ exports[`ControlsBar when it renders play button it renders correctly 1`] = `
     </svg>
   </span>
   <span
+    className="css-bcxn3o"
+  >
+    <div
+      className="css-1i8pure"
+    >
+      <input
+        className="css-1thazes"
+        max={1}
+        onChange={[Function]}
+        size="0.15em"
+        step="any"
+        type="range"
+        value={1}
+      />
+      <div
+        className="css-1jwjj7r"
+      />
+    </div>
+  </span>
+  <span
     className="css-1g6ztab"
   >
     00:00:00 / 00:00:00
@@ -199,6 +259,26 @@ exports[`ControlsBar when it renders replay button it renders correctly 1`] = `
         fill="none"
       />
     </svg>
+  </span>
+  <span
+    className="css-bcxn3o"
+  >
+    <div
+      className="css-1i8pure"
+    >
+      <input
+        className="css-1thazes"
+        max={1}
+        onChange={[Function]}
+        size="0.15em"
+        step="any"
+        type="range"
+        value={1}
+      />
+      <div
+        className="css-1jwjj7r"
+      />
+    </div>
   </span>
   <span
     className="css-1g6ztab"
@@ -253,6 +333,26 @@ exports[`ControlsBar when it renders time it renders correctly 1`] = `
     </svg>
   </span>
   <span
+    className="css-bcxn3o"
+  >
+    <div
+      className="css-1i8pure"
+    >
+      <input
+        className="css-1thazes"
+        max={1}
+        onChange={[Function]}
+        size="0.15em"
+        step="any"
+        type="range"
+        value={1}
+      />
+      <div
+        className="css-1jwjj7r"
+      />
+    </div>
+  </span>
+  <span
     className="css-1g6ztab"
   >
     00:01:39 / 00:16:39
@@ -305,6 +405,26 @@ exports[`ControlsBar whit low volume it renders correctly 1`] = `
     </svg>
   </span>
   <span
+    className="css-bcxn3o"
+  >
+    <div
+      className="css-1i8pure"
+    >
+      <input
+        className="css-1thazes"
+        max={1}
+        onChange={[Function]}
+        size="0.15em"
+        step="any"
+        type="range"
+        value={0.2}
+      />
+      <div
+        className="css-1dt063q"
+      />
+    </div>
+  </span>
+  <span
     className="css-1g6ztab"
   >
     00:00:00 / 00:00:00
@@ -355,6 +475,26 @@ exports[`ControlsBar whit min volume it renders correctly 1`] = `
         fill="none"
       />
     </svg>
+  </span>
+  <span
+    className="css-bcxn3o"
+  >
+    <div
+      className="css-1i8pure"
+    >
+      <input
+        className="css-1thazes"
+        max={1}
+        onChange={[Function]}
+        size="0.15em"
+        step="any"
+        type="range"
+        value={0}
+      />
+      <div
+        className="css-1hte4yv"
+      />
+    </div>
   </span>
   <span
     className="css-1g6ztab"

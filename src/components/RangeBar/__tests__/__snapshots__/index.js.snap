@@ -2,7 +2,7 @@
 
 exports[`RangeBar when it is at the end it renders correctly 1`] = `
 <div
-  className="css-1tbhals"
+  className="css-12pnkes"
 >
   <input
     className="css-aav0sr"
@@ -21,7 +21,7 @@ exports[`RangeBar when it is at the end it renders correctly 1`] = `
 
 exports[`RangeBar whith all props it renders correctly 1`] = `
 <div
-  className="css-n5xm19"
+  className="css-pletxe"
 >
   <input
     className="css-1vgo5h5"
@@ -40,7 +40,7 @@ exports[`RangeBar whith all props it renders correctly 1`] = `
 
 exports[`RangeBar without currentValue and maxValue it renders correctly 1`] = `
 <div
-  className="css-1tbhals"
+  className="css-12pnkes"
 >
   <input
     className="css-aav0sr"
@@ -59,11 +59,11 @@ exports[`RangeBar without currentValue and maxValue it renders correctly 1`] = `
 
 exports[`RangeBar without props it renders correctly 1`] = `
 <div
-  className="css-1tbhals"
+  className="css-12pnkes"
 >
   <input
     className="css-aav0sr"
-    max={0}
+    max={1}
     onChange={[Function]}
     size="0.2em"
     step="any"

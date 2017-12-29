@@ -173,13 +173,14 @@ describe(Player.name, () => {
     })
 
     describe('handleSeekTo', () => {
-      test('it calls setState', () => {
+      test('it calls setState and sets player.currentTime', () => {
         this.Player.player = {
           currentTime: 9,
         }
         this.Player.setState = jest.fn()
-        this.Player.handleSeekTo()
+        this.Player.handleSeekTo(10)
         expect(this.Player.setState).toHaveBeenCalled()
+        expect(this.Player.player.currentTime).toBe(10)
       })
     })
 
@@ -188,6 +189,18 @@ describe(Player.name, () => {
         this.Player.setState = jest.fn()
         this.Player.handleTimeUpdate()
         expect(this.Player.setState).toHaveBeenCalled()
+      })
+    })
+
+    describe('handleUpdateVolumeTo', () => {
+      test('it calls setState and sets player.volume', () => {
+        this.Player.player = {
+          volume: 0.9,
+        }
+        this.Player.setState = jest.fn()
+        this.Player.handleUpdateVolumeTo(1)
+        expect(this.Player.setState).toHaveBeenCalled()
+        expect(this.Player.player.volume).toBe(1)
       })
     })
 

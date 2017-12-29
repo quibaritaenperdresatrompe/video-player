@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 import Icon from '../../components/Icon'
+import RangeBar from '../../components/RangeBar'
 
 const ControlsBarContainer = glamorous.div({
   display: 'flex',
@@ -91,6 +92,22 @@ class ControlsBar extends Component {
     )
   }
 
+  renderVolumeBar = () => {
+    const {
+      volume,
+      updateVolumeTo,
+    } = this.props
+    return (
+      <ControlContainer>
+        <RangeBar
+          currentValue={volume}
+          setTo={updateVolumeTo}
+          size='0.15em'
+        />
+      </ControlContainer>
+    )
+  }
+
   render() {
     const {
       pause,
@@ -102,6 +119,7 @@ class ControlsBar extends Component {
       <ControlsBarContainer>
         {this.renderAction()}
         {this.renderVolume()}
+        {this.renderVolumeBar()}
         {this.renderTime()}
       </ControlsBarContainer>
     )
@@ -119,6 +137,7 @@ ControlsBar.propTypes = {
   play: PropTypes.func,
   unmute: PropTypes.func,
   volume: PropTypes.number,
+  updateVolumeTo: PropTypes.func,
 }
 
 ControlsBar.defaultProps = {
@@ -132,6 +151,7 @@ ControlsBar.defaultProps = {
   play: null,
   unmute: () => undefined,
   volume: 1,
+  updateVolumeTo: () => undefined,
 }
 
 export default ControlsBar

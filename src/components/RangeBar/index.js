@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 const RangeBarContainer = glamorous.div(({ size }) => ({
-  margin: '0.5em 0',
+  margin: `calc(${size} * 5) 0`,
   backgroundColor: 'hsla(0, 0%, 100%, 0.8)',
   height: size,
   opacity: '0.8',
@@ -109,7 +109,7 @@ RangeBar.propTypes = {
 RangeBar.defaultProps = {
   color: 'hsla(0, 0%, 100%, 1)',
   currentValue: 0,
-  maxValue: 0,
+  maxValue: 1,
   setTo: () => undefined,
   size: '0.2em',
 }

@@ -118,6 +118,11 @@ class Player extends Component {
     }))
   }
 
+  handleUpdateVolumeTo = volume => {
+    this.player.volume = volume
+    this.setState(() => ({ volume }))
+  }
+
   hideControlsBar = (isDelayed = false) => {
     if (isDelayed) {
       this.hideControlsBarWithDelay()
@@ -190,6 +195,7 @@ class Player extends Component {
           pause={this.handlePause}
           play={this.handlePlay}
           volume={volume}
+          updateVolumeTo={this.handleUpdateVolumeTo}
         />
       </ControlsBarContainer>
     )
