@@ -33,6 +33,7 @@ describe(Player.name, () => {
     describe('componentWillMount', () => {
       test('it calls addEventListener', () => {
         this.Player.handleKeyUp = jest.fn()
+        window.addEventListener = jest.fn()
         this.Player.componentWillMount()
         expect(window.addEventListener).toHaveBeenCalledWith('keyup', this.Player.handleKeyUp)
       })
@@ -41,6 +42,7 @@ describe(Player.name, () => {
     describe('componentWillUnmount', () => {
       test('it calls removeEventListener', () => {
         this.Player.handleKeyUp = jest.fn()
+        window.removeEventListener = jest.fn()
         this.Player.componentWillUnmount()
         expect(window.removeEventListener).toHaveBeenCalledWith('keyup', this.Player.handleKeyUp)
       })
