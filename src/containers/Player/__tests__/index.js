@@ -54,10 +54,10 @@ describe(Player.name, () => {
       })
     })
 
-    describe('handleOnLoad', () => {
+    describe('handleLoad', () => {
       test('it calls setState', () => {
         this.Player.setState = jest.fn()
-        this.Player.handleOnLoad()
+        this.Player.handleLoad()
         expect(this.Player.setState).toHaveBeenCalled()
       })
     })

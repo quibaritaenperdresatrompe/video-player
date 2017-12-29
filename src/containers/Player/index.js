@@ -42,7 +42,7 @@ class Player extends Component {
     this.showControlsBar(true)
   }
 
-  handleOnLoad = () => {
+  handleLoad = () => {
     this.setState(() => ({
       duration: this.player.duration,
     }))
@@ -145,7 +145,7 @@ class Player extends Component {
         <video
           height={480}
           onClick={controlAction}
-          onLoadedMetadata={this.handleOnLoad}
+          onLoadedMetadata={this.handleLoad}
           onTimeUpdate={this.handleTimeUpdate}
           ref={el => { this.player = el }}
           src={this.props.currentSource}
