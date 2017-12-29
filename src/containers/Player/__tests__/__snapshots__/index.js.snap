@@ -58,7 +58,7 @@ exports[`Player when is playing it renders correctly 1`] = `
         onClick={[Function]}
       >
         <svg
-          className="css-gt3xp3"
+          className="css-diyyq9"
           color="hsla(0, 0%, 100%, 0.8)"
           height="1.2em"
           viewBox="0 0 24 24"
@@ -78,7 +78,7 @@ exports[`Player when is playing it renders correctly 1`] = `
         onClick={[Function]}
       >
         <svg
-          className="css-gt3xp3"
+          className="css-diyyq9"
           color="hsla(0, 0%, 100%, 0.8)"
           height="1.2em"
           viewBox="0 0 24 24"
@@ -144,7 +144,7 @@ exports[`Player without props it renders correctly 1`] = `
         onClick={[Function]}
       >
         <svg
-          className="css-gt3xp3"
+          className="css-diyyq9"
           color="hsla(0, 0%, 100%, 0.8)"
           height="1.2em"
           viewBox="0 0 24 24"
@@ -164,7 +164,7 @@ exports[`Player without props it renders correctly 1`] = `
         onClick={[Function]}
       >
         <svg
-          className="css-gt3xp3"
+          className="css-diyyq9"
           color="hsla(0, 0%, 100%, 0.8)"
           height="1.2em"
           viewBox="0 0 24 24"

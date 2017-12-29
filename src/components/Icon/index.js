@@ -26,7 +26,7 @@ class Icon extends PureComponent {
     if (!iconPath) return null
     return (
       <StyledIcon
-        backgroundColor={this.props.backgroundColor}
+        hoverColor={this.props.hoverColor}
         color={this.props.color}
         height={this.props.size}
         viewBox='0 0 24 24'
