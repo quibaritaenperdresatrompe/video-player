@@ -1,4 +1,4 @@
-import Player, { SPACE_KEY_CODE } from '../'
+import Player, { SPACE_KEY_CODE, ESC_KEY_CODE } from '../'
 
 import itRendersAllMutations from '../../../utils/jest-it-renders-all-mutations'
 
@@ -18,6 +18,12 @@ const mutations = [
     name: 'when is playing',
     state: {
       isPlaying: true,
+    },
+  },
+  {
+    name: 'when is in fullscreen mode',
+    state: {
+      isFullscreenMode: true,
     },
   },
 ]
@@ -54,6 +60,22 @@ describe(Player.name, () => {
       this.Player = new Player()
     })
 
+    describe('handleEnterFullscreenMode', () => {
+      test('it calls setState', () => {
+        this.Player.setState = jest.fn()
+        this.Player.handleEnterFullscreenMode()
+        expect(this.Player.setState).toHaveBeenCalled()
+      })
+    })
+
+    describe('handleExitFullscreenMode', () => {
+      test('it calls setState', () => {
+        this.Player.setState = jest.fn()
+        this.Player.handleExitFullscreenMode()
+        expect(this.Player.setState).toHaveBeenCalled()
+      })
+    })
+
     describe('handleKeyUp', () => {
       test('it does nothing', () => {
         this.Player.state = {
@@ -61,9 +83,11 @@ describe(Player.name, () => {
         }
         this.Player.handlePause = jest.fn()
         this.Player.handlePlay = jest.fn()
+        this.Player.handleExitFullscreenMode = jest.fn()
         this.Player.handleKeyUp({})
         expect(this.Player.handlePause).not.toHaveBeenCalled()
         expect(this.Player.handlePlay).not.toHaveBeenCalled()
+        expect(this.Player.handleExitFullscreenMode).not.toHaveBeenCalled()
       })
       test('it does nothing', () => {
         this.Player.state = {
@@ -72,9 +96,11 @@ describe(Player.name, () => {
         const event = { keyCode: 0 }
         this.Player.handlePause = jest.fn()
         this.Player.handlePlay = jest.fn()
+        this.Player.handleExitFullscreenMode = jest.fn()
         this.Player.handleKeyUp(event)
         expect(this.Player.handlePause).not.toHaveBeenCalled()
         expect(this.Player.handlePlay).not.toHaveBeenCalled()
+        expect(this.Player.handleExitFullscreenMode).not.toHaveBeenCalled()
       })
       test('it calls handlePause', () => {
         this.Player.state = {
@@ -99,6 +125,26 @@ describe(Player.name, () => {
         this.Player.handleKeyUp(event)
         expect(this.Player.handlePause).not.toHaveBeenCalled()
         expect(this.Player.handlePlay).toHaveBeenCalled()
+      })
+      test('it does nothing', () => {
+        this.Player.state = {
+          isFocused: true,
+          isFullscreenMode: false,
+        }
+        const event = { keyCode: ESC_KEY_CODE }
+        this.Player.handleExitFullscreenMode = jest.fn()
+        this.Player.handleKeyUp(event)
+        expect(this.Player.handleExitFullscreenMode).not.toHaveBeenCalled()
+      })
+      test('it calls handleExitFullscreenMode', () => {
+        this.Player.state = {
+          isFocused: true,
+          isFullscreenMode: true,
+        }
+        const event = { keyCode: ESC_KEY_CODE }
+        this.Player.handleExitFullscreenMode = jest.fn()
+        this.Player.handleKeyUp(event)
+        expect(this.Player.handleExitFullscreenMode).toHaveBeenCalled()
       })
     })
 

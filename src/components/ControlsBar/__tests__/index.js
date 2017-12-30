@@ -65,6 +65,14 @@ const mutations = [
       isMuted: true,
     },
   },
+  {
+    name: 'when is fullscreen mode',
+    props: {
+      pause: jest.fn(),
+      play: jest.fn(),
+      isFullscreenMode: true,
+    },
+  },
 ]
 
 describe(ControlsBar.name, () => {

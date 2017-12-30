@@ -10,10 +10,24 @@ const ControlsBarContainer = glamorous.div({
   alignItems: 'center',
 })
 
-const ControlContainer = glamorous.span({
+const LeftControlsContainer = glamorous.div({
+  alignItems: 'center',
+  display: 'flex',
+  flexGrow: 1,
+  justifyContent: 'flex-start',
+})
+
+const RightControlsContainer = glamorous.div({
+  alignItems: 'center',
+  display: 'flex',
+  flex: 1,
+  justifyContent: 'flex-end',
+})
+
+const ControlContainer = glamorous.span(({
   cursor: 'pointer',
   margin: '0 0.5em',
-})
+}))
 
 const TimeContainer = glamorous.span({
   fontSize: '0.6em',
@@ -108,6 +122,27 @@ class ControlsBar extends Component {
     )
   }
 
+  renderFullScreenToggle = () => {
+    const {
+      enterFullscreenMode,
+      exitFullscreenMode,
+      isFullscreenMode,
+    } = this.props
+
+    return (
+      <ControlContainer
+        onClick={isFullscreenMode ? exitFullscreenMode : enterFullscreenMode}
+      >
+        <Icon
+          iconName={isFullscreenMode
+            ? 'FullscreenExitIcon'
+            : 'FullscreenIcon'}
+          size='1.2em'
+        />
+      </ControlContainer>
+    )
+  }
+
   render() {
     const {
       pause,
@@ -117,10 +152,15 @@ class ControlsBar extends Component {
     if (!pause && !play) return null
     return (
       <ControlsBarContainer>
-        {this.renderAction()}
-        {this.renderVolume()}
-        {this.renderVolumeBar()}
-        {this.renderTime()}
+        <LeftControlsContainer>
+          {this.renderAction()}
+          {this.renderVolume()}
+          {this.renderVolumeBar()}
+          {this.renderTime()}
+        </LeftControlsContainer>
+        <RightControlsContainer>
+          {this.renderFullScreenToggle()}
+        </RightControlsContainer>
       </ControlsBarContainer>
     )
   }
@@ -129,7 +169,10 @@ class ControlsBar extends Component {
 ControlsBar.propTypes = {
   currentTime: PropTypes.number,
   duration: PropTypes.number,
+  enterFullscreenMode: PropTypes.func,
+  exitFullscreenMode: PropTypes.func,
   isComplete: PropTypes.bool,
+  isFullscreenMode: PropTypes.bool,
   isMuted: PropTypes.bool,
   isPlaying: PropTypes.bool,
   mute: PropTypes.func,
@@ -143,7 +186,10 @@ ControlsBar.propTypes = {
 ControlsBar.defaultProps = {
   currentTime: 0,
   duration: 0,
+  enterFullscreenMode: () => undefined,
+  exitFullscreenMode: () => undefined,
   isComplete: false,
+  isFullscreenMode: false,
   isMuted: false,
   isPlaying: false,
   mute: () => undefined,

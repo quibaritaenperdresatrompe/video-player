@@ -6,16 +6,37 @@ import ControlsBar from '../../components/ControlsBar'
 import RangeBar from '../../components/RangeBar'
 
 export const SPACE_KEY_CODE = 32
+export const ESC_KEY_CODE = 27
 
-const PlayerContainer = glamorous.div(({ isCursorHidden }) => ({
-  cursor: isCursorHidden ? 'none' : 'default',
-  minHeight: '480px',
-  position: 'relative',
-}))
+const StyledPlayer = glamorous.div(
+  ({ isCursorHidden }) => ({
+    cursor: isCursorHidden ? 'none' : 'default',
+  }),
+  ({ isFullscreenMode }) => {
+    if (isFullscreenMode) {
+      return {
+        backgroundColor: 'hsl(0, 0%, 16%)',
+        bottom: 0,
+        height: '100vh',
+        left: 0,
+        margin: 'auto',
+        position: 'absolute',
+        width: '100vw',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }
+    }
+    return {
+      position: 'relative',
+    }
+  },
+)
 
 const ControlsBarContainer = glamorous.div({
   background: 'linear-gradient(bottom, hsl(0, 0%, 14%) 0%, transparent 100%)',
   bottom: 0,
+  left: 0,
   position: 'absolute',
   width: 'calc(100% - 1em)',
   padding: '0.5em',
@@ -31,6 +52,7 @@ class Player extends Component {
       isComplete: false,
       isControlsBarHidden: false,
       isFocused: false,
+      isFullscreenMode: false,
       isMuted: false,
       isPlaying: false,
       volume: 1,
@@ -45,10 +67,31 @@ class Player extends Component {
     window.removeEventListener('keyup', this.handleKeyUp)
   }
 
+  handleEnterFullscreenMode = () => {
+    this.setState(() => ({
+      isFullscreenMode: true,
+    }))
+  }
+
+  handleExitFullscreenMode = () => {
+    this.setState(() => ({
+      isFullscreenMode: false,
+    }))
+  }
+
   handleKeyUp = ({ keyCode }) => {
-    if (this.state.isFocused && keyCode === SPACE_KEY_CODE) {
-      if (this.state.isPlaying) this.handlePause()
-      else this.handlePlay()
+    if (this.state.isFocused) {
+      switch (keyCode) {
+        case SPACE_KEY_CODE:
+          if (this.state.isPlaying) this.handlePause()
+          else this.handlePlay()
+          break
+        case ESC_KEY_CODE:
+          if (this.state.isFullscreenMode) this.handleExitFullscreenMode()
+          break
+        default:
+          break
+      }
     }
   }
 
@@ -170,6 +213,7 @@ class Player extends Component {
       duration,
       isComplete,
       isControlsBarHidden,
+      isFullscreenMode,
       isMuted,
       isPlaying,
       volume,
@@ -187,15 +231,18 @@ class Player extends Component {
         <ControlsBar
           currentTime={currentTime}
           duration={duration}
+          enterFullscreenMode={this.handleEnterFullscreenMode}
+          exitFullscreenMode={this.handleExitFullscreenMode}
           isComplete={isComplete}
+          isFullscreenMode={isFullscreenMode}
           isMuted={isMuted}
           isPlaying={isPlaying}
           mute={this.handleMute}
-          unmute={this.handleUnmute}
           pause={this.handlePause}
           play={this.handlePlay}
-          volume={volume}
+          unmute={this.handleUnmute}
           updateVolumeTo={this.handleUpdateVolumeTo}
+          volume={volume}
         />
       </ControlsBarContainer>
     )
@@ -205,20 +252,22 @@ class Player extends Component {
     const {
       isControlsBarHidden,
       isComplete,
+      isFullscreenMode,
       isPlaying,
     } = this.state
     const controlAction = isPlaying && !isComplete ? this.handlePause : this.handlePlay
     const isCursorHidden = isPlaying && isControlsBarHidden
 
     return (
-      <PlayerContainer
+      <StyledPlayer
         isCursorHidden={isCursorHidden}
+        isFullscreenMode={isFullscreenMode}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         onMouseMove={this.handleMouseMove}
       >
         <video
-          height={480}
+          height={isFullscreenMode ? '100%' : this.props.height}
           onClick={controlAction}
           onLoadedMetadata={this.handleLoad}
           onTimeUpdate={this.handleTimeUpdate}
@@ -226,17 +275,19 @@ class Player extends Component {
           src={this.props.currentSource}
         />
         {this.renderControlsBar()}
-      </PlayerContainer>
+      </StyledPlayer>
     )
   }
 }
 
 Player.propTypes = {
   currentSource: PropTypes.string,
+  height: PropTypes.number,
 }
 
 Player.defaultProps = {
   currentSource: null,
+  height: 480,
 }
 
 export default Player

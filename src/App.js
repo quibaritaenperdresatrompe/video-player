@@ -7,23 +7,27 @@ import './App.scss'
 
 const StyledApp = glamorous.div({
   height: '100vh',
+  display: 'flex',
+  alignItems: 'center',
+  position: 'relative',
 })
 
-const StyledPlayerContainer = glamorous.div({
+const PlayerContainer = glamorous.div({
   alignItems: 'center',
   display: 'flex',
-  height: '100vh',
+  flexGrow: 1,
   justifyContent: 'center',
-  padding: '1em',
+  padding: '2em',
 })
 
 export default class App extends Component {
   render() {
     return (
       <StyledApp>
-        <StyledPlayerContainer>
-          <Player currentSource='https://s3-eu-west-1.amazonaws.com/onrewind-test-bucket/big_buck_bunny.mp4' />
-        </StyledPlayerContainer>
+        <PlayerContainer>
+          <Player
+            currentSource='https://s3-eu-west-1.amazonaws.com/onrewind-test-bucket/big_buck_bunny.mp4' />
+        </PlayerContainer>
       </StyledApp>
     )
   }
