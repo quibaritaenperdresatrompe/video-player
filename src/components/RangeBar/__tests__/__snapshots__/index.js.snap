@@ -2,10 +2,10 @@
 
 exports[`RangeBar when it is at the end it renders correctly 1`] = `
 <div
-  className="css-9mvxa5"
+  className="css-yvobmt"
 >
   <input
-    className="css-aav0sr"
+    className="css-jlbw85"
     max={10}
     onChange={[Function]}
     size="0.2em"
@@ -14,17 +14,17 @@ exports[`RangeBar when it is at the end it renders correctly 1`] = `
     value={10}
   />
   <div
-    className="css-1jwjj7r"
+    className="css-165iffl"
   />
 </div>
 `;
 
 exports[`RangeBar whith all props it renders correctly 1`] = `
 <div
-  className="css-bmb8of"
+  className="css-flc5ir"
 >
   <input
-    className="css-1vgo5h5"
+    className="css-9aew2r"
     max={10}
     onChange={[Function]}
     size="3em"
@@ -33,17 +33,17 @@ exports[`RangeBar whith all props it renders correctly 1`] = `
     value={10}
   />
   <div
-    className="css-4xxlbu"
+    className="css-50mjea"
   />
 </div>
 `;
 
 exports[`RangeBar without currentValue and maxValue it renders correctly 1`] = `
 <div
-  className="css-9mvxa5"
+  className="css-yvobmt"
 >
   <input
-    className="css-aav0sr"
+    className="css-jlbw85"
     max={10}
     onChange={[Function]}
     size="0.2em"
@@ -52,17 +52,17 @@ exports[`RangeBar without currentValue and maxValue it renders correctly 1`] = `
     value={9}
   />
   <div
-    className="css-f50oys"
+    className="css-1s0fwli"
   />
 </div>
 `;
 
 exports[`RangeBar without props it renders correctly 1`] = `
 <div
-  className="css-9mvxa5"
+  className="css-yvobmt"
 >
   <input
-    className="css-aav0sr"
+    className="css-jlbw85"
     max={1}
     onChange={[Function]}
     size="0.2em"
@@ -71,7 +71,7 @@ exports[`RangeBar without props it renders correctly 1`] = `
     value={0}
   />
   <div
-    className="css-1hte4yv"
+    className="css-1wlszkb"
   />
 </div>
 `;

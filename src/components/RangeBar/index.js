@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
 const RangeBarContainer = glamorous.div(({ size }) => ({
-  margin: `calc(${size} * 2) 0`,
   backgroundColor: 'hsla(0, 0%, 100%, 0.8)',
+  margin: `calc(${size} * 2) 0`,
   opacity: '0.8',
   position: 'relative',
   ':hover': {
@@ -19,6 +19,7 @@ const StyledRangeBar = glamorous.input(({ color, size }) => {
     border: 0,
     borderRadius: '50%',
     height: `calc(${size} * 5)`,
+    margin: `${size} 0`,
     width: `calc(${size} * 5)`,
   }
 
@@ -38,9 +39,9 @@ const StyledRangeBar = glamorous.input(({ color, size }) => {
   }
 })
 
-const StyledCurrentValueBar = glamorous.div(({ color, progress }) => ({
+const StyledCurrentValueBar = glamorous.div(({ color, progress, size }) => ({
   backgroundColor: color,
-  height: '100%',
+  height: size,
   left: 0,
   position: 'absolute',
   top: 0,
