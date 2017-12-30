@@ -12,7 +12,7 @@ const StyledApp = glamorous.div({
   position: 'relative',
 })
 
-const PlayerContainer = glamorous.div({
+const MediumContainer = glamorous.div({
   alignItems: 'center',
   display: 'flex',
   flexGrow: 1,
@@ -21,13 +21,35 @@ const PlayerContainer = glamorous.div({
 })
 
 export default class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      media: [
+        {
+          title: 'Big Buck Bunny',
+          source: 'https://s3-eu-west-1.amazonaws.com/onrewind-test-bucket/big_buck_bunny.mp4',
+        },
+      ],
+      currentMedium: 0,
+    }
+  }
+
+  renderPlayer = () => {
+    const mediumToRead = this.state.media && this.state.media[this.state.currentMedium]
+    if (mediumToRead && mediumToRead.source) {
+      return (
+        <MediumContainer>
+          <Player medium={mediumToRead} />
+        </MediumContainer>
+      )
+    }
+    return null
+  }
+
   render() {
     return (
       <StyledApp>
-        <PlayerContainer>
-          <Player
-            currentSource='https://s3-eu-west-1.amazonaws.com/onrewind-test-bucket/big_buck_bunny.mp4' />
-        </PlayerContainer>
+        {this.renderPlayer()}
       </StyledApp>
     )
   }

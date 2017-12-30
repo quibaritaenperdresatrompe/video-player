@@ -8,7 +8,7 @@ import RangeBar from '../../components/RangeBar'
 export const SPACE_KEY_CODE = 32
 export const ESC_KEY_CODE = 27
 
-const StyledPlayer = glamorous.div(
+const PlayerContainer = glamorous.div(
   ({ isCursorHidden }) => ({
     cursor: isCursorHidden ? 'none' : 'default',
   }),
@@ -259,34 +259,40 @@ class Player extends Component {
     const isCursorHidden = isPlaying && isControlsBarHidden
 
     return (
-      <StyledPlayer
-        isCursorHidden={isCursorHidden}
-        isFullscreenMode={isFullscreenMode}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
-        onMouseMove={this.handleMouseMove}
-      >
-        <video
-          height={isFullscreenMode ? '100%' : this.props.height}
-          onClick={controlAction}
-          onLoadedMetadata={this.handleLoad}
-          onTimeUpdate={this.handleTimeUpdate}
-          ref={el => { this.player = el }}
-          src={this.props.currentSource}
-        />
-        {this.renderControlsBar()}
-      </StyledPlayer>
+      <div>
+        <PlayerContainer
+          isCursorHidden={isCursorHidden}
+          isFullscreenMode={isFullscreenMode}
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
+          onMouseMove={this.handleMouseMove}
+        >
+          <video
+            height={isFullscreenMode ? '100%' : this.props.height}
+            onClick={controlAction}
+            onLoadedMetadata={this.handleLoad}
+            onTimeUpdate={this.handleTimeUpdate}
+            ref={el => { this.player = el }}
+            src={this.props.medium.source}
+          />
+          {this.renderControlsBar()}
+        </PlayerContainer>
+        <h3>{this.props.medium.title}</h3>
+      </div>
     )
   }
 }
 
 Player.propTypes = {
-  currentSource: PropTypes.string,
+  medium: PropTypes.shape({
+    title: PropTypes.string,
+    source: PropTypes.string,
+  }),
   height: PropTypes.number,
 }
 
 Player.defaultProps = {
-  currentSource: null,
+  medium: null,
   height: 480,
 }
 
