@@ -258,6 +258,7 @@ class Player extends Component {
     const controlAction = isPlaying && !isComplete ? this.handlePause : this.handlePlay
     const isCursorHidden = isPlaying && isControlsBarHidden
 
+    if (!this.props.medium) return null
     return (
       <div>
         <PlayerContainer

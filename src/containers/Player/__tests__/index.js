@@ -8,20 +8,36 @@ const mutations = [
     props: null,
   },
   {
+    name: 'with medium',
+    props: {
+      medium: {},
+    },
+  },
+  {
     name: 'when ControlsBar is hidden',
+    props: {
+      medium: {},
+    },
     state: {
-      isPlaying: true,
+      isComplete: false,
       isControlsBarHidden: true,
+      isPlaying: true,
     },
   },
   {
     name: 'when is playing',
+    props: {
+      medium: {},
+    },
     state: {
       isPlaying: true,
     },
   },
   {
     name: 'when is in fullscreen mode',
+    props: {
+      medium: {},
+    },
     state: {
       isFullscreenMode: true,
     },
