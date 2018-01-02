@@ -78,17 +78,19 @@ describe(Player.name, () => {
 
     describe('handleEnterFullscreenMode', () => {
       test('it calls setState', () => {
-        this.Player.setState = jest.fn()
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.handleEnterFullscreenMode()
-        expect(this.Player.setState).toHaveBeenCalled()
       })
     })
 
     describe('handleExitFullscreenMode', () => {
       test('it calls setState', () => {
-        this.Player.setState = jest.fn()
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.handleExitFullscreenMode()
-        expect(this.Player.setState).toHaveBeenCalled()
       })
     })
 
@@ -166,29 +168,35 @@ describe(Player.name, () => {
 
     describe('handleLoad', () => {
       test('it calls setState', () => {
-        this.Player.setState = jest.fn()
+        this.Player.player = {
+          duration: 99,
+        }
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.handleLoad()
-        expect(this.Player.setState).toHaveBeenCalled()
       })
     })
 
     describe('handleMouseEnter', () => {
       test('it calls showControlsBar and setState', () => {
         this.Player.showControlsBar = jest.fn()
-        this.Player.setState = jest.fn()
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.handleMouseEnter()
         expect(this.Player.showControlsBar).toHaveBeenCalledWith(true)
-        expect(this.Player.setState).toHaveBeenCalled()
       })
     })
 
     describe('handleMouseLeave', () => {
       test('it calls hideControlsBar and setState', () => {
         this.Player.hideControlsBar = jest.fn()
-        this.Player.setState = jest.fn()
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.handleMouseLeave()
         expect(this.Player.hideControlsBar).toHaveBeenCalled()
-        expect(this.Player.setState).toHaveBeenCalled()
       })
     })
 
@@ -203,22 +211,24 @@ describe(Player.name, () => {
     describe('handleMute', () => {
       test('it calls mute and setState', () => {
         this.Player.mute = jest.fn()
-        this.Player.setState = jest.fn()
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.handleMute()
         expect(this.Player.mute).toHaveBeenCalled()
-        expect(this.Player.setState).toHaveBeenCalled()
       })
     })
 
     describe('handlePause', () => {
       test('it calls pause, showControlsBar, and setState', () => {
         this.Player.pause = jest.fn()
-        this.Player.setState = jest.fn()
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.showControlsBar = jest.fn()
         this.Player.handlePause()
         expect(this.Player.pause).toHaveBeenCalled()
         expect(this.Player.showControlsBar).toHaveBeenCalled()
-        expect(this.Player.setState).toHaveBeenCalled()
       })
     })
 
@@ -226,11 +236,12 @@ describe(Player.name, () => {
       test('it calls play, hideControlsBar, and setState', () => {
         this.Player.play = jest.fn()
         this.Player.hideControlsBar = jest.fn()
-        this.Player.setState = jest.fn()
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.handlePlay()
         expect(this.Player.play).toHaveBeenCalled()
         expect(this.Player.hideControlsBar).toHaveBeenCalledWith(true)
-        expect(this.Player.setState).toHaveBeenCalled()
       })
     })
 
@@ -239,18 +250,26 @@ describe(Player.name, () => {
         this.Player.player = {
           currentTime: 9,
         }
-        this.Player.setState = jest.fn()
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.handleSeekTo(10)
-        expect(this.Player.setState).toHaveBeenCalled()
         expect(this.Player.player.currentTime).toBe(10)
       })
     })
 
     describe('handleTimeUpdate', () => {
       test('it calls setState', () => {
-        this.Player.setState = jest.fn()
+        this.Player.state = {
+          duration: 99,
+        }
+        this.Player.player = {
+          currentTime: 9,
+        }
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.handleTimeUpdate()
-        expect(this.Player.setState).toHaveBeenCalled()
       })
     })
 
@@ -259,9 +278,10 @@ describe(Player.name, () => {
         this.Player.player = {
           volume: 0.9,
         }
-        this.Player.setState = jest.fn()
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.handleUpdateVolumeTo(1)
-        expect(this.Player.setState).toHaveBeenCalled()
         expect(this.Player.player.volume).toBe(1)
       })
     })
@@ -269,10 +289,11 @@ describe(Player.name, () => {
     describe('handleUnmute', () => {
       test('it calls unmute and setState', () => {
         this.Player.unmute = jest.fn()
-        this.Player.setState = jest.fn()
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.handleUnmute()
         expect(this.Player.unmute).toHaveBeenCalled()
-        expect(this.Player.setState).toHaveBeenCalled()
       })
     })
   })
@@ -289,19 +310,21 @@ describe(Player.name, () => {
         expect(this.Player.hideControlsBarWithDelay).toHaveBeenCalled()
       })
       test('it calls setState', () => {
-        this.Player.setState = jest.fn()
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.hideControlsBar()
-        expect(this.Player.setState).toHaveBeenCalled()
       })
     })
 
     describe('hideControlsBarWithDelay', () => {
       test('it calls window.setTimeout and setState', () => {
         jest.useFakeTimers()
-        this.Player.setState = jest.fn()
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.hideControlsBarWithDelay()
         expect(window.setTimeout).toHaveBeenCalled()
-        expect(this.Player.setState).toHaveBeenCalled()
       })
     })
 
@@ -346,12 +369,14 @@ describe(Player.name, () => {
     })
 
     describe('showControlsBar', () => {
-      test('it calls window.clearTimeout and setState', () => {
+      test('it calls window.clearTimeout, setState', () => {
+        this.Player.hideControlsBarWithDelay = jest.fn()
         jest.useFakeTimers()
-        this.Player.setState = jest.fn()
+        this.Player.setState = jest.fn((fn) => {
+          expect(fn(this.Player.state)).toMatchSnapshot()
+        })
         this.Player.showControlsBar()
         expect(window.clearTimeout).toHaveBeenCalled()
-        expect(this.Player.setState).toHaveBeenCalled()
       })
     })
   })

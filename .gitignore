@@ -2,3 +2,6 @@ node_modules/
 yarn-error.log
 public/*.bundle.js
 coverage/
+cypress/fixtures
+cypress/plugins
+cypress/support

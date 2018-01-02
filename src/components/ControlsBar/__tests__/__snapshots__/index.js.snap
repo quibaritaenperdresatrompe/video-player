@@ -18,7 +18,7 @@ exports[`ControlsBar when is fullscreen mode it renders correctly 1`] = `
     className="css-gijb3s"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o PlayAndPause"
       onClick={[MockFunction]}
     >
       <svg
@@ -38,7 +38,7 @@ exports[`ControlsBar when is fullscreen mode it renders correctly 1`] = `
       </svg>
     </span>
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Sound"
       onClick={[Function]}
     >
       <svg
@@ -87,7 +87,7 @@ exports[`ControlsBar when is fullscreen mode it renders correctly 1`] = `
     className="css-1dsees0"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Fullscreen"
       onClick={[Function]}
     >
       <svg
@@ -118,7 +118,7 @@ exports[`ControlsBar when is muted volume it renders correctly 1`] = `
     className="css-gijb3s"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o PlayAndPause"
       onClick={[MockFunction]}
     >
       <svg
@@ -138,7 +138,7 @@ exports[`ControlsBar when is muted volume it renders correctly 1`] = `
       </svg>
     </span>
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Sound"
       onClick={[Function]}
     >
       <svg
@@ -187,7 +187,7 @@ exports[`ControlsBar when is muted volume it renders correctly 1`] = `
     className="css-1dsees0"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Fullscreen"
       onClick={[Function]}
     >
       <svg
@@ -218,7 +218,7 @@ exports[`ControlsBar when it renders pause button it renders correctly 1`] = `
     className="css-gijb3s"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o PlayAndPause"
       onClick={[MockFunction]}
     >
       <svg
@@ -238,7 +238,7 @@ exports[`ControlsBar when it renders pause button it renders correctly 1`] = `
       </svg>
     </span>
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Sound"
       onClick={[Function]}
     >
       <svg
@@ -287,7 +287,7 @@ exports[`ControlsBar when it renders pause button it renders correctly 1`] = `
     className="css-1dsees0"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Fullscreen"
       onClick={[Function]}
     >
       <svg
@@ -318,7 +318,7 @@ exports[`ControlsBar when it renders play button it renders correctly 1`] = `
     className="css-gijb3s"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o PlayAndPause"
       onClick={[MockFunction]}
     >
       <svg
@@ -338,7 +338,7 @@ exports[`ControlsBar when it renders play button it renders correctly 1`] = `
       </svg>
     </span>
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Sound"
       onClick={[Function]}
     >
       <svg
@@ -387,7 +387,7 @@ exports[`ControlsBar when it renders play button it renders correctly 1`] = `
     className="css-1dsees0"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Fullscreen"
       onClick={[Function]}
     >
       <svg
@@ -418,7 +418,7 @@ exports[`ControlsBar when it renders replay button it renders correctly 1`] = `
     className="css-gijb3s"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o PlayAndPause"
       onClick={[MockFunction]}
     >
       <svg
@@ -438,7 +438,7 @@ exports[`ControlsBar when it renders replay button it renders correctly 1`] = `
       </svg>
     </span>
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Sound"
       onClick={[Function]}
     >
       <svg
@@ -487,7 +487,7 @@ exports[`ControlsBar when it renders replay button it renders correctly 1`] = `
     className="css-1dsees0"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Fullscreen"
       onClick={[Function]}
     >
       <svg
@@ -518,7 +518,7 @@ exports[`ControlsBar when it renders time it renders correctly 1`] = `
     className="css-gijb3s"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o PlayAndPause"
       onClick={[MockFunction]}
     >
       <svg
@@ -538,7 +538,7 @@ exports[`ControlsBar when it renders time it renders correctly 1`] = `
       </svg>
     </span>
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Sound"
       onClick={[Function]}
     >
       <svg
@@ -587,7 +587,7 @@ exports[`ControlsBar when it renders time it renders correctly 1`] = `
     className="css-1dsees0"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Fullscreen"
       onClick={[Function]}
     >
       <svg
@@ -618,7 +618,7 @@ exports[`ControlsBar whit low volume it renders correctly 1`] = `
     className="css-gijb3s"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o PlayAndPause"
       onClick={[MockFunction]}
     >
       <svg
@@ -638,7 +638,7 @@ exports[`ControlsBar whit low volume it renders correctly 1`] = `
       </svg>
     </span>
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Sound"
       onClick={[Function]}
     >
       <svg
@@ -687,7 +687,7 @@ exports[`ControlsBar whit low volume it renders correctly 1`] = `
     className="css-1dsees0"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Fullscreen"
       onClick={[Function]}
     >
       <svg
@@ -718,7 +718,7 @@ exports[`ControlsBar whit min volume it renders correctly 1`] = `
     className="css-gijb3s"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o PlayAndPause"
       onClick={[MockFunction]}
     >
       <svg
@@ -738,7 +738,7 @@ exports[`ControlsBar whit min volume it renders correctly 1`] = `
       </svg>
     </span>
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Sound"
       onClick={[Function]}
     >
       <svg
@@ -787,7 +787,7 @@ exports[`ControlsBar whit min volume it renders correctly 1`] = `
     className="css-1dsees0"
   >
     <span
-      className="css-bcxn3o"
+      className="css-bcxn3o Fullscreen"
       onClick={[Function]}
     >
       <svg

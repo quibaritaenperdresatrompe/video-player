@@ -42,15 +42,13 @@ describe(RangeBar.name, () => {
     })
 
     describe('handleChange', () => {
-      test('it calls props.setTo and setState', () => {
+      test('it calls props.setTo', () => {
         this.RangeBar.props = {
           setTo: jest.fn(),
         }
-        this.RangeBar.setState = jest.fn()
         const event = { target: { value: 99 } }
         this.RangeBar.handleChange(event)
         expect(this.RangeBar.props.setTo).toHaveBeenCalledWith(event.target.value)
-        expect(this.RangeBar.setState).toHaveBeenCalled()
       })
     })
   })

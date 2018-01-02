@@ -33,7 +33,7 @@ const PlayerContainer = glamorous.div(
   },
 )
 
-const ControlsBarContainer = glamorous.div({
+const ControlsContainer = glamorous.div({
   background: 'linear-gradient(bottom, hsl(0, 0%, 14%) 0%, transparent 100%)',
   bottom: 0,
   left: 0,
@@ -221,7 +221,7 @@ class Player extends Component {
 
     if (isPlaying && !isComplete && isControlsBarHidden) return null
     return (
-      <ControlsBarContainer>
+      <ControlsContainer className='Controls'>
         <RangeBar
           currentValue={currentTime}
           maxValue={duration}
@@ -244,7 +244,7 @@ class Player extends Component {
           updateVolumeTo={this.handleUpdateVolumeTo}
           volume={volume}
         />
-      </ControlsBarContainer>
+      </ControlsContainer>
     )
   }
 

@@ -5,6 +5,9 @@ const SRC_DIR = path.resolve(__dirname, 'src')
 const PUBLIC_DIR = path.resolve(__dirname, 'public')
 
 module.exports = {
+  devServer: {
+    port: 8080,
+  },
   entry: path.join(SRC_DIR, 'index.js'),
   output: {
     path: PUBLIC_DIR,

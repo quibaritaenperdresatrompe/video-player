@@ -70,7 +70,10 @@ class ControlsBar extends Component {
     const ActionIcon = this.getActionIcon()
 
     return (
-      <ControlContainer onClick={isPlaying && !isComplete ? pause : play}>
+      <ControlContainer
+        className='PlayAndPause'
+        onClick={isPlaying && !isComplete ? pause : play}
+      >
         <Icon
           iconName={ActionIcon}
           size='1.2em'
@@ -97,7 +100,10 @@ class ControlsBar extends Component {
     } = this.props
     const VolumeIcon = this.getVolumeIcon()
     return (
-      <ControlContainer onClick={isMuted ? unmute : mute}>
+      <ControlContainer
+        className='Sound'
+        onClick={isMuted ? unmute : mute}
+      >
         <Icon
           iconName={VolumeIcon}
           size='1.2em'
@@ -131,6 +137,7 @@ class ControlsBar extends Component {
 
     return (
       <ControlContainer
+        className='Fullscreen'
         onClick={isFullscreenMode ? exitFullscreenMode : enterFullscreenMode}
       >
         <Icon

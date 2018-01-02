@@ -1,5 +1,96 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Player functions hideControlsBar it calls setState 1`] = `
+Object {
+  "isControlsBarHidden": true,
+}
+`;
+
+exports[`Player functions hideControlsBarWithDelay it calls window.setTimeout and setState 1`] = `
+Object {
+  "autoHideControlsBarTimeout": 1,
+}
+`;
+
+exports[`Player functions showControlsBar it calls window.clearTimeout, setState 1`] = `
+Object {
+  "isControlsBarHidden": false,
+}
+`;
+
+exports[`Player handlers handleEnterFullscreenMode it calls setState 1`] = `
+Object {
+  "isFullscreenMode": true,
+}
+`;
+
+exports[`Player handlers handleExitFullscreenMode it calls setState 1`] = `
+Object {
+  "isFullscreenMode": false,
+}
+`;
+
+exports[`Player handlers handleLoad it calls setState 1`] = `
+Object {
+  "duration": 99,
+}
+`;
+
+exports[`Player handlers handleMouseEnter it calls showControlsBar and setState 1`] = `
+Object {
+  "isFocused": true,
+}
+`;
+
+exports[`Player handlers handleMouseLeave it calls hideControlsBar and setState 1`] = `
+Object {
+  "isFocused": false,
+}
+`;
+
+exports[`Player handlers handleMute it calls mute and setState 1`] = `
+Object {
+  "isMuted": true,
+}
+`;
+
+exports[`Player handlers handlePause it calls pause, showControlsBar, and setState 1`] = `
+Object {
+  "isPlaying": false,
+}
+`;
+
+exports[`Player handlers handlePlay it calls play, hideControlsBar, and setState 1`] = `
+Object {
+  "isPlaying": true,
+}
+`;
+
+exports[`Player handlers handleSeekTo it calls setState and sets player.currentTime 1`] = `
+Object {
+  "currentTime": 10,
+}
+`;
+
+exports[`Player handlers handleTimeUpdate it calls setState 1`] = `
+Object {
+  "currentTime": 9,
+  "isComplete": false,
+}
+`;
+
+exports[`Player handlers handleUnmute it calls unmute and setState 1`] = `
+Object {
+  "isMuted": false,
+}
+`;
+
+exports[`Player handlers handleUpdateVolumeTo it calls setState and sets player.volume 1`] = `
+Object {
+  "volume": 1,
+}
+`;
+
 exports[`Player when ControlsBar is hidden it renders correctly 1`] = `
 <div>
   <div
@@ -36,7 +127,7 @@ exports[`Player when is in fullscreen mode it renders correctly 1`] = `
       src={undefined}
     />
     <div
-      className="css-h8qyac"
+      className="css-h8qyac Controls"
     >
       <div
         className="css-yvobmt"
@@ -61,7 +152,7 @@ exports[`Player when is in fullscreen mode it renders correctly 1`] = `
           className="css-gijb3s"
         >
           <span
-            className="css-bcxn3o"
+            className="css-bcxn3o PlayAndPause"
             onClick={[Function]}
           >
             <svg
@@ -81,7 +172,7 @@ exports[`Player when is in fullscreen mode it renders correctly 1`] = `
             </svg>
           </span>
           <span
-            className="css-bcxn3o"
+            className="css-bcxn3o Sound"
             onClick={[Function]}
           >
             <svg
@@ -130,7 +221,7 @@ exports[`Player when is in fullscreen mode it renders correctly 1`] = `
           className="css-1dsees0"
         >
           <span
-            className="css-bcxn3o"
+            className="css-bcxn3o Fullscreen"
             onClick={[Function]}
           >
             <svg
@@ -173,7 +264,7 @@ exports[`Player when is playing it renders correctly 1`] = `
       src={undefined}
     />
     <div
-      className="css-h8qyac"
+      className="css-h8qyac Controls"
     >
       <div
         className="css-yvobmt"
@@ -198,7 +289,7 @@ exports[`Player when is playing it renders correctly 1`] = `
           className="css-gijb3s"
         >
           <span
-            className="css-bcxn3o"
+            className="css-bcxn3o PlayAndPause"
             onClick={[Function]}
           >
             <svg
@@ -218,7 +309,7 @@ exports[`Player when is playing it renders correctly 1`] = `
             </svg>
           </span>
           <span
-            className="css-bcxn3o"
+            className="css-bcxn3o Sound"
             onClick={[Function]}
           >
             <svg
@@ -267,7 +358,7 @@ exports[`Player when is playing it renders correctly 1`] = `
           className="css-1dsees0"
         >
           <span
-            className="css-bcxn3o"
+            className="css-bcxn3o Fullscreen"
             onClick={[Function]}
           >
             <svg
@@ -310,7 +401,7 @@ exports[`Player with medium it renders correctly 1`] = `
       src={undefined}
     />
     <div
-      className="css-h8qyac"
+      className="css-h8qyac Controls"
     >
       <div
         className="css-yvobmt"
@@ -335,7 +426,7 @@ exports[`Player with medium it renders correctly 1`] = `
           className="css-gijb3s"
         >
           <span
-            className="css-bcxn3o"
+            className="css-bcxn3o PlayAndPause"
             onClick={[Function]}
           >
             <svg
@@ -355,7 +446,7 @@ exports[`Player with medium it renders correctly 1`] = `
             </svg>
           </span>
           <span
-            className="css-bcxn3o"
+            className="css-bcxn3o Sound"
             onClick={[Function]}
           >
             <svg
@@ -404,7 +495,7 @@ exports[`Player with medium it renders correctly 1`] = `
           className="css-1dsees0"
         >
           <span
-            className="css-bcxn3o"
+            className="css-bcxn3o Fullscreen"
             onClick={[Function]}
           >
             <svg

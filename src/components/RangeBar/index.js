@@ -51,18 +51,8 @@ const StyledCurrentValueBar = glamorous.div(({ color, progress, size }) => ({
 }))
 
 class RangeBar extends Component {
-  constructor() {
-    super()
-    this.state = {
-      isSetting: false,
-    }
-  }
-
   handleChange = ({ target: { value } }) => {
     this.props.setTo(parseFloat(value, 10))
-    this.setState(() => ({
-      isSetting: true,
-    }))
   }
 
   render() {
