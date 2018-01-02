@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ControlsBar enterFullscreenMode defaultProp it calls correctly and returns 1`] = `undefined`;
+
+exports[`ControlsBar exitFullscreenMode defaultProp it calls correctly and returns 1`] = `undefined`;
+
+exports[`ControlsBar mute defaultProp it calls correctly and returns 1`] = `undefined`;
+
+exports[`ControlsBar unmute defaultProp it calls correctly and returns 1`] = `undefined`;
+
+exports[`ControlsBar updateVolumeTo defaultProp it calls correctly and returns 1`] = `undefined`;
+
 exports[`ControlsBar when is fullscreen mode it renders correctly 1`] = `
 <div
   className="css-12alag6"

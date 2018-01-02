@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`RangeBar setTo defaultProp it calls correctly and returns 1`] = `undefined`;
+
 exports[`RangeBar when it is at the end it renders correctly 1`] = `
 <div
   className="css-yvobmt"
