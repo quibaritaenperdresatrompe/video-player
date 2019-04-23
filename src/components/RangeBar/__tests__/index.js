@@ -1,6 +1,6 @@
-import RangeBar from '../'
+import RangeBar from '../';
 
-import itRendersAllMutations from '../../../utils/jest-it-renders-all-mutations'
+import itRendersAllMutations from '../../../utils/jest-it-renders-all-mutations';
 
 const mutations = [
   {
@@ -31,25 +31,25 @@ const mutations = [
       size: '3em',
     },
   },
-]
+];
 
 describe(RangeBar.name, () => {
-  itRendersAllMutations(RangeBar, mutations)
+  itRendersAllMutations(RangeBar, mutations);
 
   describe('handlers', function scope() {
     beforeEach(() => {
-      this.RangeBar = new RangeBar()
-    })
+      this.RangeBar = new RangeBar();
+    });
 
     describe('handleChange', () => {
       test('it calls props.setTo', () => {
         this.RangeBar.props = {
           setTo: jest.fn(),
-        }
-        const event = { target: { value: 99 } }
-        this.RangeBar.handleChange(event)
-        expect(this.RangeBar.props.setTo).toHaveBeenCalledWith(event.target.value)
-      })
-    })
-  })
-})
+        };
+        const event = { target: { value: 99 } };
+        this.RangeBar.handleChange(event);
+        expect(this.RangeBar.props.setTo).toHaveBeenCalledWith(event.target.value);
+      });
+    });
+  });
+});

@@ -1,6 +1,6 @@
-import Icon from '../'
+import Icon from '../';
 
-import itRendersAllMutations from '../../../utils/jest-it-renders-all-mutations'
+import itRendersAllMutations from '../../../utils/jest-it-renders-all-mutations';
 
 const mutations = [
   {
@@ -28,8 +28,8 @@ const mutations = [
       size: '3em',
     },
   },
-]
+];
 
 describe(Icon.name, () => {
-  itRendersAllMutations(Icon, mutations)
-})
+  itRendersAllMutations(Icon, mutations);
+});

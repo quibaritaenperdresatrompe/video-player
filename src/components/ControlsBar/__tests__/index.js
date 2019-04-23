@@ -1,6 +1,6 @@
-import ControlsBar from '../'
+import ControlsBar from '../';
 
-import itRendersAllMutations from '../../../utils/jest-it-renders-all-mutations'
+import itRendersAllMutations from '../../../utils/jest-it-renders-all-mutations';
 
 const mutations = [
   {
@@ -73,8 +73,8 @@ const mutations = [
       isFullscreenMode: true,
     },
   },
-]
+];
 
 describe(ControlsBar.name, () => {
-  itRendersAllMutations(ControlsBar, mutations)
-})
+  itRendersAllMutations(ControlsBar, mutations);
+});

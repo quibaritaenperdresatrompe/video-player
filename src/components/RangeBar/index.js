@@ -1,6 +1,6 @@
-import glamorous from 'glamorous'
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import glamorous from 'glamorous';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 const RangeBarContainer = glamorous.div(({ size }) => ({
   backgroundColor: 'hsla(0, 0%, 100%, 0.8)',
@@ -10,7 +10,7 @@ const RangeBarContainer = glamorous.div(({ size }) => ({
   ':hover': {
     opacity: '1',
   },
-}))
+}));
 
 const StyledRangeBar = glamorous.input(({ color, size }) => {
   const thumbStyle = {
@@ -21,7 +21,7 @@ const StyledRangeBar = glamorous.input(({ color, size }) => {
     height: `calc(${size} * 5)`,
     margin: `${size} 0`,
     width: `calc(${size} * 5)`,
-  }
+  };
 
   return {
     appearance: 'none',
@@ -36,8 +36,8 @@ const StyledRangeBar = glamorous.input(({ color, size }) => {
     '::-webkit-slider-thumb': thumbStyle,
     '::-moz-range-thumb': thumbStyle,
     '::-ms-thumb': thumbStyle,
-  }
-})
+  };
+});
 
 const StyledCurrentValueBar = glamorous.div(({ color, progress, size }) => ({
   backgroundColor: color,
@@ -45,27 +45,18 @@ const StyledCurrentValueBar = glamorous.div(({ color, progress, size }) => ({
   left: 0,
   position: 'absolute',
   top: 0,
-  width: progress === 100
-    ? `${progress}%`
-    : `calc(${progress}% + 1px)`,
-}))
+  width: progress === 100 ? `${progress}%` : `calc(${progress}% + 1px)`,
+}));
 
 class RangeBar extends Component {
   handleChange = ({ target: { value } }) => {
-    this.props.setTo(parseFloat(value, 10))
-  }
+    this.props.setTo(parseFloat(value, 10));
+  };
 
   render() {
-    const {
-      color,
-      currentValue,
-      maxValue,
-      size,
-    } = this.props
+    const { color, currentValue, maxValue, size } = this.props;
 
-    const progress = maxValue === 0
-      ? 0
-      : (currentValue * 100) / maxValue
+    const progress = maxValue === 0 ? 0 : (currentValue * 100) / maxValue;
 
     return (
       <RangeBarContainer size={size}>
@@ -74,17 +65,13 @@ class RangeBar extends Component {
           max={maxValue}
           onChange={this.handleChange}
           size={size}
-          step='any'
-          type='range'
+          step="any"
+          type="range"
           value={currentValue}
         />
-        <StyledCurrentValueBar
-          color={color}
-          progress={progress}
-          size={size}
-        />
+        <StyledCurrentValueBar color={color} progress={progress} size={size} />
       </RangeBarContainer>
-    )
+    );
   }
 }
 
@@ -94,7 +81,7 @@ RangeBar.propTypes = {
   maxValue: PropTypes.number,
   setTo: PropTypes.func,
   size: PropTypes.string,
-}
+};
 
 RangeBar.defaultProps = {
   color: 'hsla(0, 0%, 100%, 1)',
@@ -102,6 +89,6 @@ RangeBar.defaultProps = {
   maxValue: 1,
   setTo: () => undefined,
   size: '0.2em',
-}
+};
 
-export default RangeBar
+export default RangeBar;

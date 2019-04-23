@@ -1,12 +1,12 @@
-import glamorous from 'glamorous'
-import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import glamorous from 'glamorous';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
-import ControlsBar from '../../components/ControlsBar'
-import RangeBar from '../../components/RangeBar'
+import ControlsBar from '../../components/ControlsBar';
+import RangeBar from '../../components/RangeBar';
 
-export const SPACE_KEY_CODE = 32
-export const ESC_KEY_CODE = 27
+export const SPACE_KEY_CODE = 32;
+export const ESC_KEY_CODE = 27;
 
 const PlayerContainer = glamorous.div(
   ({ isCursorHidden }) => ({
@@ -25,13 +25,13 @@ const PlayerContainer = glamorous.div(
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-      }
+      };
     }
     return {
       position: 'relative',
-    }
+    };
   },
-)
+);
 
 const ControlsContainer = glamorous.div({
   background: 'linear-gradient(bottom, hsl(0, 0%, 14%) 0%, transparent 100%)',
@@ -40,11 +40,11 @@ const ControlsContainer = glamorous.div({
   position: 'absolute',
   width: 'calc(100% - 1em)',
   padding: '0.5em',
-})
+});
 
 class Player extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       autoHideControlsBarTimeout: null,
       currentTime: 0,
@@ -56,156 +56,156 @@ class Player extends Component {
       isMuted: false,
       isPlaying: false,
       volume: 1,
-    }
+    };
   }
 
   componentWillMount() {
-    window.addEventListener('keyup', this.handleKeyUp)
+    window.addEventListener('keyup', this.handleKeyUp);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keyup', this.handleKeyUp)
+    window.removeEventListener('keyup', this.handleKeyUp);
   }
 
   handleEnterFullscreenMode = () => {
     this.setState(() => ({
       isFullscreenMode: true,
-    }))
-  }
+    }));
+  };
 
   handleExitFullscreenMode = () => {
     this.setState(() => ({
       isFullscreenMode: false,
-    }))
-  }
+    }));
+  };
 
   handleKeyUp = ({ keyCode }) => {
     if (this.state.isFocused) {
       switch (keyCode) {
         case SPACE_KEY_CODE:
-          if (this.state.isPlaying) this.handlePause()
-          else this.handlePlay()
-          break
+          if (this.state.isPlaying) this.handlePause();
+          else this.handlePlay();
+          break;
         case ESC_KEY_CODE:
-          if (this.state.isFullscreenMode) this.handleExitFullscreenMode()
-          break
+          if (this.state.isFullscreenMode) this.handleExitFullscreenMode();
+          break;
         default:
-          break
+          break;
       }
     }
-  }
+  };
 
   handleLoad = () => {
     this.setState(() => ({
       duration: this.player.duration,
-    }))
-  }
+    }));
+  };
 
   handleMouseEnter = () => {
-    this.showControlsBar(true)
+    this.showControlsBar(true);
     this.setState(() => ({
       isFocused: true,
-    }))
-  }
+    }));
+  };
 
   handleMouseLeave = () => {
-    this.hideControlsBar()
+    this.hideControlsBar();
     this.setState(() => ({
       isFocused: false,
-    }))
-  }
+    }));
+  };
 
   handleMouseMove = () => {
-    this.showControlsBar(true)
-  }
+    this.showControlsBar(true);
+  };
 
   handleMute = () => {
-    this.mute()
+    this.mute();
     this.setState(() => ({
       isMuted: true,
-    }))
-  }
+    }));
+  };
 
   handlePause = () => {
-    this.pause()
+    this.pause();
     this.setState(() => ({
       isPlaying: false,
-    }))
-    this.showControlsBar()
-  }
+    }));
+    this.showControlsBar();
+  };
 
   handlePlay = () => {
-    this.play()
+    this.play();
     this.setState(() => ({
       isPlaying: true,
-    }))
-    this.hideControlsBar(true)
-  }
+    }));
+    this.hideControlsBar(true);
+  };
 
   handleSeekTo = currentTime => {
-    this.player.currentTime = currentTime
-    this.setState(() => ({ currentTime }))
-  }
+    this.player.currentTime = currentTime;
+    this.setState(() => ({ currentTime }));
+  };
 
   handleTimeUpdate = () => {
     this.setState(() => ({
       currentTime: this.player.currentTime,
       isComplete: this.player.currentTime === this.state.duration,
-    }))
-  }
+    }));
+  };
 
   handleUnmute = () => {
-    this.unmute()
+    this.unmute();
     this.setState(() => ({
       isMuted: false,
-    }))
-  }
+    }));
+  };
 
   handleUpdateVolumeTo = volume => {
-    this.player.volume = volume
-    this.setState(() => ({ volume }))
-  }
+    this.player.volume = volume;
+    this.setState(() => ({ volume }));
+  };
 
   hideControlsBar = (isDelayed = false) => {
     if (isDelayed) {
-      this.hideControlsBarWithDelay()
+      this.hideControlsBarWithDelay();
     } else {
       this.setState(() => ({
         isControlsBarHidden: true,
-      }))
+      }));
     }
-  }
+  };
 
   hideControlsBarWithDelay = () => {
-    const timeout = window.setTimeout(this.hideControlsBar, 3e3)
+    const timeout = window.setTimeout(this.hideControlsBar, 3e3);
     this.setState(() => ({
       autoHideControlsBarTimeout: timeout,
-    }))
-  }
+    }));
+  };
 
   mute = () => {
-    this.player.muted = true
-  }
+    this.player.muted = true;
+  };
 
   unmute = () => {
-    this.player.muted = false
-  }
+    this.player.muted = false;
+  };
 
-  play = () => this.player.play()
+  play = () => this.player.play();
 
-  pause = () => this.player.pause()
+  pause = () => this.player.pause();
 
   showControlsBar = (isTemporary = false) => {
-    window.clearTimeout(this.state.autoHideControlsBarTimeout)
+    window.clearTimeout(this.state.autoHideControlsBarTimeout);
     this.setState(
       () => ({
         isControlsBarHidden: false,
       }),
       () => {
-        if (isTemporary) this.hideControlsBarWithDelay()
+        if (isTemporary) this.hideControlsBarWithDelay();
       },
-    )
-  }
+    );
+  };
 
   renderControlsBar = () => {
     const {
@@ -217,16 +217,16 @@ class Player extends Component {
       isMuted,
       isPlaying,
       volume,
-    } = this.state
+    } = this.state;
 
-    if (isPlaying && !isComplete && isControlsBarHidden) return null
+    if (isPlaying && !isComplete && isControlsBarHidden) return null;
     return (
-      <ControlsContainer className='Controls'>
+      <ControlsContainer className="Controls">
         <RangeBar
           currentValue={currentTime}
           maxValue={duration}
           setTo={this.handleSeekTo}
-          color='hsl(0, 68%, 50%)'
+          color="hsl(0, 68%, 50%)"
         />
         <ControlsBar
           currentTime={currentTime}
@@ -245,20 +245,15 @@ class Player extends Component {
           volume={volume}
         />
       </ControlsContainer>
-    )
-  }
+    );
+  };
 
   render() {
-    const {
-      isControlsBarHidden,
-      isComplete,
-      isFullscreenMode,
-      isPlaying,
-    } = this.state
-    const controlAction = isPlaying && !isComplete ? this.handlePause : this.handlePlay
-    const isCursorHidden = isPlaying && isControlsBarHidden
+    const { isControlsBarHidden, isComplete, isFullscreenMode, isPlaying } = this.state;
+    const controlAction = isPlaying && !isComplete ? this.handlePause : this.handlePlay;
+    const isCursorHidden = isPlaying && isControlsBarHidden;
 
-    if (!this.props.medium) return null
+    if (!this.props.medium) return null;
     return (
       <div>
         <PlayerContainer
@@ -273,14 +268,16 @@ class Player extends Component {
             onClick={controlAction}
             onLoadedMetadata={this.handleLoad}
             onTimeUpdate={this.handleTimeUpdate}
-            ref={el => { this.player = el }}
+            ref={el => {
+              this.player = el;
+            }}
             src={this.props.medium.source}
           />
           {this.renderControlsBar()}
         </PlayerContainer>
         <h3>{this.props.medium.title}</h3>
       </div>
-    )
+    );
   }
 }
 
@@ -290,11 +287,11 @@ Player.propTypes = {
     source: PropTypes.string,
   }),
   height: PropTypes.number,
-}
+};
 
 Player.defaultProps = {
   medium: null,
   height: 480,
-}
+};
 
-export default Player
+export default Player;
